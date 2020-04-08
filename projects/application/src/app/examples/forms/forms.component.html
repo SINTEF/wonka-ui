@@ -1,0 +1,31 @@
+<div id="demo">
+    <div class="row">
+        <div class="columns">
+            <div class="column"></div>
+            <div class="column is-8">
+                <div class="header">Wonka Forms Page example</div>
+                <lib-form 
+                    [form]="form1"
+                    (formSubmitted)="onSubmit1($event)"></lib-form>
+                <br>
+                <pre>
+                    <code class="code" [innerHtml]="explanation1"></code>
+                </pre>
+                <br>
+                <lib-form 
+                    [form]="form2"
+                    [showConfirmation]="showConfirmation"
+                    [showAbortButton]="true" 
+                    (formSubmitted)="onSubmit2($event)"
+                    (buttonClicked)="onButtonClicked($event)"></lib-form>
+                <br>
+                <pre>
+                    <code class="code" [innerHtml]="explanation2"></code>
+                </pre>
+                <br>
+
+            </div>
+            <div class="column"></div>
+        </div>
+    </div>
+</div>

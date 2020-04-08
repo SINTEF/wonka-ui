@@ -1,0 +1,80 @@
+<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a style="margin-top: -15px; margin-bottom: -10px; padding-top: -10px; padding-bottom: -10px;" class="navbar-item" href="/">
+            <img src="{{logo}}" [ngClass]="logoClass" style="min-width: 50px; min-height: 50px;">&nbsp;<span *ngIf="header" [ngClass]="headerClass">{{header}}</span>
+          </a>
+          &nbsp;&nbsp;&nbsp;
+
+          <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+
+        <div id="navbarBasicExample" class="navbar-menu">
+<!-- User logged in -->
+          <div id="loggedIn" class="navbar-start"  *ngIf="user">
+            <a *ngFor="let menuElement of menu; trackBy: trackByFn;" class="navbar-item" [routerLink]="menuElement.path">
+              {{ menuElement.name }}
+            </a>
+          </div>
+<!-- User not logged in -->
+          <div id="loggedOut" class="navbar-start"  *ngIf="!user">
+            <span *ngFor="let menuElement of menu; trackBy: trackByFn;" class="navbar-item is-disabled">
+              {{ menuElement.name }}
+            </span>
+          </div>
+
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <div class="buttons">
+                <span *ngIf="showSearch" class="navbar-item">
+                  <input class="input is-small" style="width: 200px;" type="text" [(ngModel)]="searchword" (keyup.enter)="searchThis()">
+                  <i style="padding-left: 2px; padding-top: 5px;"
+                    (click)="searchThis()"
+                    class="material-icons is-active input-line link"
+                    title="Search">
+                    search
+                  </i>
+                </span>
+                <span *ngIf="showLoginButton" class="navbar-item">
+                  <li class="navbar-item" *ngIf="user">
+                    {{ user ? user.email : '' }}
+                  </li>
+                  <button class="is-small button {{ user ? 'is-light' : 'is-primary' }}" (click)="authorize()">
+                    <strong *ngIf="user">{{ logout }}</strong>
+                    <strong *ngIf="!user">{{ login }}</strong>
+                  </button>
+                </span>
+
+                <span *ngIf="dropdownMenu" class="navbar-item">
+                  <div class="dropdown is-right" [ngClass]="{'is-active': isActive,'': !isActive}" (click)="toggleActive()">
+                    <div class="dropdown-trigger">
+                      <div aria-haspopup="true" aria-controls="dropdown-menu">
+                        <div class="avatar" style="height: 40px; width: 40px;"></div>
+                      </div>
+                    </div>
+                    <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                      <div class="dropdown-content">
+                        <a *ngFor="let item of dropdownMenu; trackBy: trackByFn;" [routerLink]="item.path" class="dropdown-item">
+                          {{item.name}}
+                        </a>
+                        <hr *ngIf="showLoginMenuItem" class="dropdown-divider">
+                        <a *ngIf="showLoginMenuItem && user" [routerLink]="" class="dropdown-item" (click)="authorize()">
+                          {{ logout }}
+                        </a>
+                        <a *ngIf="showLoginMenuItem && !user" [routerLink]="" class="dropdown-item" (click)="authorize()">
+                          {{ login }}
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </nav>

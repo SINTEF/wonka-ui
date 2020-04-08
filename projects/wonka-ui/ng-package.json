@@ -1,0 +1,15 @@
+{
+  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../dist/wonka-ui",
+  "lib": {
+    "entryFile": "src/public-api.ts",
+    "umdModuleIds": {
+      "ng2-charts": "ng2-charts",
+      "chart.js": "chart.js"
+    }
+  },
+  "whitelistedNonPeerDependencies": [
+    "chart.js",
+    "ng2-charts"
+  ]
+}

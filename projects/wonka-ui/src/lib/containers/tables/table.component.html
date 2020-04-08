@@ -1,0 +1,22 @@
+<section id="lib-table" *ngIf="table">
+    <article class="panel is-info">
+        <p class="panel-heading">
+            {{ table.tableHeader }}
+        </p>
+
+        <table id="{{getTableId(table.id)}}" class="table is-bordered is-hoverable is-fullwidth">
+            <thead>
+                <tr>
+                    <th id="{{getThId(col.columnName)}}" *ngFor="let col of table.cols; trackBy: trackByFn;" [ngStyle]="col.width ? {width: col.width + '%'} : ''">{{ col.columnName }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="{{getTrId(i)}}" class="link" *ngFor="let dataItems of table.data; let i = index;" (click)="select(dataItems)">
+                    <td *ngFor="let dataItem of dataItems; trackBy: trackByFn">
+                        {{ dataItem }}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </article>
+</section>

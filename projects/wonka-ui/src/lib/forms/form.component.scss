@@ -1,0 +1,57 @@
+.input {
+    border: 1px solid #efefef;
+}
+
+.result-label {
+    font-weight: normal;
+    text-align: left;
+}
+
+.label {
+    width: 150px;
+}
+
+.header {
+    font-weight: bold;
+}
+
+.invalid {
+  border-color: lightcoral;
+}
+
+.medium-width {
+    width: 70%;
+}
+
+.medium-width {
+    width: 70%;
+}
+
+.small-width {
+    width: 20%;
+}
+
+.input-line {
+    padding: 8px 4px 0;
+    width: 70px;
+}
+
+.select, .select select{ 
+    width: 100%;
+}
+
+.visible {
+    display: block;
+}
+.hidden {
+    display: none;
+}
+#create-button {
+    margin-left: 5px;
+}
+
+.wonka-checkbox {
+    vertical-align: bottom;
+    height: 40px;
+}
+
