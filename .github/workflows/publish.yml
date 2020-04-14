@@ -20,7 +20,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-          # registry-url: https://sintef.npmjs.org/
+          registry-url: https://registry.npmjs.org/
       - run: npm ci
         working-directory: projects/wonka-ui
       - run: npm publish --access public
