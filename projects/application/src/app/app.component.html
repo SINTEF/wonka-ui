@@ -1,0 +1,19 @@
+<lib-navigation-bar 
+  [logoClass]="'logo-class'"
+  [headerClass]="'header-class'"
+  [logo]="'../../../assets/img/wonka-2.png'"
+  [header]="''"
+  [showLoginButton]="true"
+  [showLoginMenuItem]="true"
+  [login]="'Log in'"
+  [logout]="'Log out'"
+  [user]="user"
+  [menu]="menu"
+  [showSearch]="true"
+  [dropdownMenu]="dropdownMenu"
+  (isAuthorized)="authorize($event)"
+  (searchcriteria)="search($event)"></lib-navigation-bar>
+
+<section class="container view is-fluid">
+  <router-outlet></router-outlet>
+</section>

@@ -1,0 +1,145 @@
+@charset "utf-8";
+
+$blue: #003c65;
+$green: #a4c21f;
+$white: #ffffff;
+$pink: #FA7C91;
+$brown: #757763;
+$beige-light: #D0D1CD;
+$beige-lighter: #EFF0EB;
+$gray: #dedede;
+
+$family-sans-serif: "Industry,Helvetica,Arial", sans-serif;
+$family-primary: $family-sans-serif;
+$primary: $green;
+$link: $pink;
+$info: $blue;
+$widescreen-enabled: false;
+$fullhd-enabled: false;
+
+$body-family: $family-primary;
+$navbar-background-color: $blue;
+$navbar-item-color: $white;
+$navbar-item-hover-color: #d8d0c7;
+$navbar-item-hover-background-color: $blue;
+$control-border-width: 2px;
+$input-border-color: solid;
+$input-shadow: #003c65;
+
+$section-padding: 1.0rem 1.0rem;
+
+$panel-heading-line-height: 1.0;
+$panel-heading-weight: 'normal';
+$panel-heading-size: 1.0;
+$panel-tabs-font-size: 0.5;
+
+$menu-item-active-background-color: $green;
+$modal-background-background-color: rgba(0, 0, 0, 0.2);
+
+// Custom defined variables
+$selected-background-color: $gray;
+
+// Import only what you need from Bulma
+@import "../node_modules/bulma/sass/utilities/_all.sass";
+@import "../node_modules/bulma/sass/grid/_all.sass";
+@import "../node_modules/bulma/sass/base/_all.sass";
+@import "../node_modules/bulma/sass/elements/button.sass";
+@import "../node_modules/bulma/sass/elements/container.sass";
+@import "../node_modules/bulma/sass/elements/table.sass";
+@import "../node_modules/bulma/sass/elements/title.sass";
+@import "../node_modules/bulma/sass/elements/icon.sass";
+@import "../node_modules/bulma/sass/elements/notification.sass";
+@import "../node_modules/bulma/sass/form/_all.sass";
+@import "../node_modules/bulma/sass/components/navbar.sass";
+@import "../node_modules/bulma/sass/components/tabs.sass";
+@import "../node_modules/bulma/sass/components/modal.sass";
+@import "../node_modules/bulma/sass/components/dropdown.sass";
+@import "../node_modules/bulma/sass/components/all.sass";
+@import "../node_modules/bulma/sass/layout/hero.sass";
+@import "../node_modules/bulma/sass/layout/section.sass";
+
+body{
+    width:100%;
+}
+
+.container {
+    padding-top: 70px;
+}
+
+.text-background {
+    background-color: $white;
+    opacity: 1.0;
+}
+
+.link {
+    cursor: pointer;
+}
+
+.info-icon {
+    color: $green;
+}
+
+.is-selected {
+    background-color: $selected-background-color;
+}
+
+.opaque {
+    background-color: white;
+}
+
+
+#wrapper {
+    display: flex;
+}
+
+.form-component {
+    padding: 5px 5px 5px 5px;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.is-disabled {
+  opacity: 0.5;
+}
+
+.demo-field {
+    margin-top: 50px;
+    padding: 10px 10px 10px 0px;
+    background-color: #dedede;
+    border: 1px solid #939393;
+    width: 600px;
+}
+
+.logo-class {
+    min-height: 50px;
+    margin: 10px 10px 10px 10px;
+    padding: 0px 0px 0px 0px;
+}
+
+.header-class {
+    font-family: 'Roboto, Arial, sans-serif';
+    font-size: 150%;
+    font-weight: bold;
+}
+
+.image-class {
+    width: 200px;
+    height: 200px;
+    margin: 10px 10px 10px 10px;
+    padding: 10px 10px 10px 10px;
+    background-image: url('/assets/img/wonka-1.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+
+}
+
+.avatar {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url('./assets/img/default-avatar.webp');
+    height: 100%; width: 100%;
+}

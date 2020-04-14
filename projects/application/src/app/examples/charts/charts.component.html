@@ -1,0 +1,35 @@
+<style>
+    .header {
+        padding: 5px 5px 5px 5px;
+        font-size: 120%;
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: bold;
+    }
+    .explanation {
+        padding: 5px 5px 5px 5px;
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        color: #202020;
+    }
+    .code {
+        padding: 5px 5px 5px 5px;
+        font-family:monospace;
+        color: blue;
+    }
+</style>
+
+<div id="demo">
+    <div class="row">
+        <div class="columns">
+            <div class="column"></div>
+            <div class="column is-8">
+                <div class="header">Wonka Charts example</div>
+                <lib-chart *ngIf="chart" [chart]="chart"></lib-chart>
+                <br>
+                <pre>
+                    <code class="code" [innerHtml]="explanation"></code>
+                </pre>
+            </div>
+            <div class="column"></div>
+        </div>
+    </div>
+</div>

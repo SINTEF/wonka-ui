@@ -1,0 +1,13 @@
+<section id="lib-info-panel">
+    <div class="row">
+            <div class="columns">
+                <div class="column is-12">
+                    <article class="panel is-info">
+                        <p class="panel-heading" [innerHtml]=" header "></p>
+                        <p class="panel-body section" [innerHtml]=" content "></p>
+                        <div [ngStyle]="applyStyles()" [ngClass]="imageClass"></div>
+                    </article>
+                </div>
+            </div>
+        </div>
+</section>

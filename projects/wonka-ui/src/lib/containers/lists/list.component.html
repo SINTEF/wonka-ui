@@ -1,0 +1,13 @@
+<section id="multipleSelect" *ngIf="items">
+    <article class="panel is-info">
+        <p class="panel-heading">
+            {{header}}
+        </p>
+        <a id="_{{item.id}}" class="asset-row mouseOver panel-block is-active" *ngFor="let item of items; trackBy: trackByFn" (click)="select(item)" [ngClass]="isActive(item) ? 'is-selected' : ''">
+        <span class="panel-icon">
+            <i class="fas fa-book" aria-hidden="true"></i>
+        </span>
+        {{item.name}}
+        </a>
+    </article>
+</section>

@@ -1,0 +1,15 @@
+<section id="lib-chart">
+    <article class="panel is-info opaque">
+        <p class="panel-heading" *ngIf="chart.title">
+            {{chart.title}}
+        </p>
+        <canvas
+            baseChart
+            [chartType]="chartType"
+            [datasets]="datasets"
+            [options]="chartOptions"
+            [legend]="true"
+            [colors]="chartColors">
+        </canvas>
+    </article>
+</section>

@@ -1,0 +1,6 @@
+# Force Linux line endings on all files
+* text eol=lf
+
+# Make sure images are not converted to text
+*.png binary
+*.jpg binary
