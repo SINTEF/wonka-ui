@@ -22,8 +22,6 @@ jobs:
           node-version: ${{ matrix.node-version }}
           registry-url: https://registry.npmjs.org/
       - run: npm ci
-        working-directory: projects/wonka-ui
       - run: npm publish --access public
-        working-directory: projects/wonka-ui
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
