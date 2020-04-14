@@ -21,7 +21,9 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           # registry-url: https://sintef.npmjs.org/
-      - run: npm install
+      - run: npm ci
+        working-directory: projects/wonka-ui
       - run: npm publish --access public
+        working-directory: projects/wonka-ui
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
