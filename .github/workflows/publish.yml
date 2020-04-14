@@ -1,6 +1,7 @@
 name: Publish to npm
 
 on:
+  # TODO do not publish to npm for every pull request. This is only to test.
   pull_request:
     branches: [ master ]
   release:
@@ -19,6 +20,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+          # registry-url: https://sintef.npmjs.org/
       - run: npm install
       - run: npm publish --access public
         env:
