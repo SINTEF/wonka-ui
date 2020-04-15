@@ -4,8 +4,7 @@
   "lib": {
     "entryFile": "src/public-api.ts",
     "umdModuleIds": {
-      "ng2-charts": "ng2-charts",
-      "chart.js": "chart.js"
+      "ng2-charts": "ng2-charts"
     }
   },
   "whitelistedNonPeerDependencies": [
