@@ -1,9 +1,6 @@
 name: Publish to npm
 
 on:
-  # TODO do not publish to npm for every pull request. This is only to test.
-  pull_request:
-    branches: [ master ]
   release:
     types: [published]
 
