@@ -1,6 +1,11 @@
 {
   "name": "wonka-ui",
-  "version": "1.0.1-beta.0",
+  "version": "1.0.1-beta.1",
+  "license": "CC-BY-4.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SINTEF/wonka-ui.git"
+  },
   "peerDependencies": {
     "@angular/material": "^8.2.3",
     "@angular/common": "^8.2.9",
