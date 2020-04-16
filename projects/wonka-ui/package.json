@@ -1,6 +1,6 @@
 {
   "name": "wonka-ui",
-  "version": "1.0.0",
+  "version": "1.0.1-beta.0",
   "peerDependencies": {
     "@angular/material": "^8.2.3",
     "@angular/common": "^8.2.9",
