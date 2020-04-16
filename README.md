@@ -1,3 +1,5 @@
+ [![npm version](https://badge.fury.io/js/wonka-ui.svg)](https://badge.fury.io/js/wonka-ui)
+
 # Angular wonka-ui - UI component library using Bulma CSS framework styles
 wonka-ui is a front-end/user interface framework written in Angular and Typescript, aimed towards making front-end components and code re-usable within SINTEF Connect.
 
