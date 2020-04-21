@@ -48,7 +48,6 @@ export class NavigationBarComponent implements OnInit {
   @Output() searchcriteria = new EventEmitter<string>();
 
   searchword: string;
-  isLoggedIn: boolean;
   isActive: boolean;
 
   constructor() { }
