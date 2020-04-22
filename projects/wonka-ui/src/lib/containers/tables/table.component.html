@@ -12,9 +12,7 @@
             </thead>
             <tbody>
                 <tr id="{{getTrId(i)}}" class="link" *ngFor="let dataItems of table.data; let i = index;" (click)="select(dataItems)">
-                    <td *ngFor="let dataItem of dataItems; trackBy: trackByFn">
-                        {{ dataItem }}
-                    </td>
+                    <td *ngFor="let dataItem of dataItems; trackBy: trackByFn" [innerHtml]="dataItem"></td>
                 </tr>
             </tbody>
         </table>
