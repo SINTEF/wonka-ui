@@ -1,5 +1,10 @@
+<style>
+    .table {
+        background-color: rgba(0, 0, 0, 0);
+    }
+</style>
 <section id="lib-table" *ngIf="table">
-    <article class="panel is-info">
+    <article class="panel is-info" [ngClass]="class">
         <p class="panel-heading">
             {{ table.tableHeader }}
         </p>
@@ -11,7 +16,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr id="{{getTrId(i)}}" class="link" *ngFor="let dataItems of table.data; let i = index;" (click)="select(dataItems)">
+                <tr id="{{getTrId(i)}}" *ngFor="let dataItems of table.data; let i = index;" (click)="select(dataItems)">
                     <td *ngFor="let dataItem of dataItems; trackBy: trackByFn" [innerHtml]="dataItem"></td>
                 </tr>
             </tbody>

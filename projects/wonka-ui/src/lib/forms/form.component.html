@@ -1,153 +1,147 @@
 <section id="lib-form">
     <form name="sintefForm" [formGroup]="sintefForm" (ngSubmit)="onSubmit()">
-        <div class="row">
-            <div class="columns">
-                <div class="column is-12">
-                    <article class="panel is-info">
-                        <p class="panel-heading">{{ form.name }}</p>
-                        <div *ngIf="showConfirmation !== true" class="panel-body section">
-                            <div *ngIf="form.description" class="notification" [innerHtml]="form.description">
-                            </div>
-                            <div class="field is-horizontal" *ngFor="let field of form.fields; trackBy: trackByFn; let i = index;" [ngClass]="field.class">
-                                <div class="field-label is-normal">
-                                    <label class="label" *ngIf="!showCreateNew[i]">{{ field.label }}</label>
-                                    <label class="label" *ngIf="field.type === 'select' && showCreateNew[i] && field.newLabel">{{ field.newLabel }}</label>
+        <article class="panel is-info" [ngClass]="class">
+            <p class="panel-heading">{{ form.name }}</p>
+            <div *ngIf="showConfirmation !== true" class="panel-body section">
+                <div *ngIf="form.description" class="notification" [innerHtml]="form.description">
+                </div>
+                <div class="field is-horizontal" *ngFor="let field of form.fields; trackBy: trackByFn; let i = index;" [ngClass]="field.class">
+                    <div class="field-label is-normal">
+                        <label class="label" *ngIf="!showCreateNew[i]">{{ field.label }}</label>
+                        <label class="label" *ngIf="field.type === 'select' && showCreateNew[i] && field.newLabel">{{ field.newLabel }}</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <div class="field is-horizontal">
+                                    <select *ngIf="field.type === 'select' && !showCreateNew[i]"
+                                        type="text"
+                                        class="input is-info medium-width"
+                                        id="{{field.name}}"
+                                        formControlName="{{field.name}}">
+                                        <option *ngFor="let option of field.options; trackBy: trackByFn;" value="{{option}}">{{option}}</option>
+                                    </select>
+                                    <input *ngIf="field.type === 'select' && showCreateNew[i]"
+                                        [ngClass]="(submitted && getInputField(field).errors) ? ('invalid ' + (field.wide === true ? 'medium-width' : 'small-width')) : (field.wide === true ? 'medium-width' : 'small-width')"
+                                        class="input is-info medium-width"
+                                        type="text"
+                                        placeholder=""
+                                        id="{{field.name}}"
+                                        formControlName="{{field.name}}">
+
+                                    <input
+                                        *ngIf="field.type === 'string' || field.type === 'number'"
+                                        [ngClass]="((submitted && getInputField(field).errors) ? ('invalid ' + (field.wide === true ? 'medium-width' : 'small-width')) : (field.wide === true ? 'medium-width' : 'small-width'))"
+                                        class="input is-info"
+                                        id="{{field.name}}"
+                                        formControlName="{{field.name}}"
+                                        value="{{field.value}}">
+
+                                    <input
+                                        *ngIf="field.type === 'checkbox'"
+                                        type="checkbox"
+                                        class="wonka-checkbox"
+                                        id="{{field.name}}"
+                                        formControlName="{{field.name}}">
+
+                                    <div style="min-width: 1px;" class="input-line">{{ field.units }}</div>
+
+                                    <a *ngIf="field.type === 'select' && field.canCreate"
+                                        (click)="createNew(field.name, i)">
+                                        <i *ngIf="showCreateNew[i]"
+                                            style="text-align: right; width: 20px;"
+                                            class="material-icons is-primary info-icon input-line link"
+                                            title="{{field.useExisting}}">
+                                            list
+                                        </i>
+                                        <i *ngIf="!showCreateNew[i]"
+                                            style="text-align: right; width: 20px;"
+                                            class="material-icons is-primary info-icon input-line link"
+                                            title="{{field.createNew}}">
+                                            add_box
+                                        </i>
+                                    </a>
+                                    &nbsp;
+                                    <mat-icon *ngIf="field.info" style="text-align: right; width: 20px;" aria-hidden="false" aria-label="icon" class="is-primary info-icon input-line link" (click)="info(field)">info</mat-icon>
+                                    <!--<mat-icon *ngIf="!field.info" style="color: lightgray; text-align: right; width: 20px;" aria-hidden="false" aria-label="icon" class="is-light info-icon input-line">info</mat-icon>-->
+
                                 </div>
-                                <div class="field-body">
-                                    <div class="field">
-                                        <div class="control">
-                                            <div class="field is-horizontal">
-                                                <select *ngIf="field.type === 'select' && !showCreateNew[i]"
-                                                    type="text"
-                                                    class="input is-info medium-width"
-                                                    id="{{field.name}}"
-                                                    formControlName="{{field.name}}">
-                                                    <option *ngFor="let option of field.options; trackBy: trackByFn;" value="{{option}}">{{option}}</option>
-                                                </select>
-                                                <input *ngIf="field.type === 'select' && showCreateNew[i]"
-                                                    [ngClass]="(submitted && getInputField(field).errors) ? ('invalid ' + (field.wide === true ? 'medium-width' : 'small-width')) : (field.wide === true ? 'medium-width' : 'small-width')"
-                                                    class="input is-info medium-width"
-                                                    type="text"
-                                                    placeholder=""
-                                                    id="{{field.name}}"
-                                                    formControlName="{{field.name}}">
-
-                                                <input
-                                                    *ngIf="field.type === 'string' || field.type === 'number'"
-                                                    [ngClass]="((submitted && getInputField(field).errors) ? ('invalid ' + (field.wide === true ? 'medium-width' : 'small-width')) : (field.wide === true ? 'medium-width' : 'small-width'))"
-                                                    class="input is-info"
-                                                    id="{{field.name}}"
-                                                    formControlName="{{field.name}}"
-                                                    value="{{field.value}}">
-
-                                                <input
-                                                    *ngIf="field.type === 'checkbox'"
-                                                    type="checkbox"
-                                                    class="wonka-checkbox"
-                                                    id="{{field.name}}"
-                                                    formControlName="{{field.name}}">
-
-                                                <div style="min-width: 1px;" class="input-line">{{ field.units }}</div>
-
-                                                <a *ngIf="field.type === 'select' && field.canCreate"
-                                                    (click)="createNew(field.name, i)">
-                                                    <i *ngIf="showCreateNew[i]"
-                                                        style="text-align: right; width: 20px;"
-                                                        class="material-icons is-primary info-icon input-line link"
-                                                        title="{{field.useExisting}}">
-                                                        list
-                                                    </i>
-                                                    <i *ngIf="!showCreateNew[i]"
-                                                        style="text-align: right; width: 20px;"
-                                                        class="material-icons is-primary info-icon input-line link"
-                                                        title="{{field.createNew}}">
-                                                        add_box
-                                                    </i>
-                                                </a>
-                                                &nbsp;
-                                                <mat-icon *ngIf="field.info" style="text-align: right; width: 20px;" aria-hidden="false" aria-label="icon" class="is-primary info-icon input-line link" (click)="info(field)">info</mat-icon>
-                                                <!--<mat-icon *ngIf="!field.info" style="color: lightgray; text-align: right; width: 20px;" aria-hidden="false" aria-label="icon" class="is-light info-icon input-line">info</mat-icon>-->
-
-                                            </div>
-                                            
-                                            <div *ngIf="submitted && getInputField(field).errors">
-                                                <div class="help is-danger" *ngIf="getInputField(field).errors.pattern">
-                                                    {{ field.label }} has wrong format (see info)
-                                                </div>
-                                                <div class="help is-danger" *ngIf="getInputField(field).errors.required">
-                                                    {{ field.label }} cannot be empty.
-                                                </div>
-                                                <div class="help is-danger" *ngIf="getInputField(field).errors.min && field.max === undefined">
-                                                    {{ field.label }} must be more than {{ field.min }}.
-                                                </div>
-                                                <div class="help is-danger" *ngIf="getInputField(field).errors.max && field.min === undefined">
-                                                    {{ field.label }} must be less than {{ field.max }}.
-                                                </div>
-                                                <div class="help is-danger" *ngIf="(getInputField(field).errors.min || getInputField(field).errors.max) && (field.min !== undefined && field.max !== undefined)">
-                                                    {{ field.label }} must be between {{ field.min }} and {{ field.max }}.
-                                                </div>
-                                            </div>
-                                        </div>
+                                
+                                <div *ngIf="submitted && getInputField(field).errors">
+                                    <div class="help is-danger" *ngIf="getInputField(field).errors.pattern">
+                                        {{ field.label }} has wrong format (see info)
                                     </div>
-                                </div>
-                            </div>
-                            <div class="field is-grouped is-grouped-right">
-                                <p class="control" *ngFor="let button of form.buttons">
-                                    <a class="button" [ngClass]="button.class" (click)="onButtonClicked(button.id)">
-                                        {{ button.label }}
-                                    </a>
-                                </p>
-                                <p class="control">
-                                    <button type="submit" class="button is-primary">
-                                        {{ form.submitText }}
-                                    </button>
-                                </p>
-                                <p class="control" *ngIf="form.resetText">
-                                    <a class="button is-light" (click)="revert()">
-                                        {{ form.resetText }}
-                                    </a>
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="modal is-active" *ngIf="modalContent">
-                            <div class="modal-background" (click)="closeModal()"></div>
-                            <div class="modal-card">
-                                <header class="modal-card-head">
-                                    <p class="modal-card-title">{{ modalHeader }}</p>
-                                </header>
-                                <section class="modal-card-body">
-                                {{ modalContent }}
-                                </section>
-                                <footer class="modal-card-foot is-grouped-right">
-                                </footer>
-                            </div>
-                        </div>
-
-                        <div *ngIf="showConfirmation === true" class="panel-body section">
-                            <div class="notification" [innerHtml]="form.confirmation">
-                            </div>
-                            <div class="field is-horizontal" *ngFor="let field of form.fields; trackBy: trackByFn;">
-                                <div class="field-label is-normal">
-                                    <label class="label">{{ field.label }}</label>
-                                </div>
-                                <div class="field-body">
-                                    <div class="field">
-                                        <div class="control">
-                                            <div class="field is-horizontal">
-                                                <input *ngIf="field.type!=='checkbox'" style="cursor: auto" [attr.disabled]="true" [ngClass]="field.wide === true ? 'medium-width' : 'small-width'" class="input is-info" type="text" value="{{getInputField(field).value}} {{field.units}}" formControlName="{{field.name}}">
-                                                <input *ngIf="field.type==='checkbox'" style="cursor: auto" [attr.disabled]="true" class="wonka-checkbox" type="checkbox" value="{{getInputField(field).value}} {{field.units}}" formControlName="{{field.name}}">
-                                            </div>
-                                        </div>
+                                    <div class="help is-danger" *ngIf="getInputField(field).errors.required">
+                                        {{ field.label }} cannot be empty.
+                                    </div>
+                                    <div class="help is-danger" *ngIf="getInputField(field).errors.min && field.max === undefined">
+                                        {{ field.label }} must be more than {{ field.min }}.
+                                    </div>
+                                    <div class="help is-danger" *ngIf="getInputField(field).errors.max && field.min === undefined">
+                                        {{ field.label }} must be less than {{ field.max }}.
+                                    </div>
+                                    <div class="help is-danger" *ngIf="(getInputField(field).errors.min || getInputField(field).errors.max) && (field.min !== undefined && field.max !== undefined)">
+                                        {{ field.label }} must be between {{ field.min }} and {{ field.max }}.
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-                    </article>
+                    </div>
+                </div>
+                <div class="field is-grouped is-grouped-right">
+                    <p class="control" *ngFor="let button of form.buttons">
+                        <a class="button" [ngClass]="button.class" (click)="onButtonClicked(button.id)">
+                            {{ button.label }}
+                        </a>
+                    </p>
+                    <p class="control">
+                        <button type="submit" class="button is-primary">
+                            {{ form.submitText }}
+                        </button>
+                    </p>
+                    <p class="control" *ngIf="form.resetText">
+                        <a class="button is-light" (click)="revert()">
+                            {{ form.resetText }}
+                        </a>
+                    </p>
                 </div>
             </div>
-        </div>
+
+            <div class="modal is-active" *ngIf="modalContent">
+                <div class="modal-background" (click)="closeModal()"></div>
+                <div class="modal-card">
+                    <header class="modal-card-head">
+                        <p class="modal-card-title">{{ modalHeader }}</p>
+                    </header>
+                    <section class="modal-card-body">
+                    {{ modalContent }}
+                    </section>
+                    <footer class="modal-card-foot is-grouped-right">
+                    </footer>
+                </div>
+            </div>
+
+            <div *ngIf="showConfirmation === true" class="panel-body section">
+                <div class="notification" [innerHtml]="form.confirmation">
+                </div>
+                <div class="field is-horizontal" *ngFor="let field of form.fields; trackBy: trackByFn;">
+                    <div class="field-label is-normal">
+                        <label class="label">{{ field.label }}</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <div class="field is-horizontal">
+                                    <input *ngIf="field.type!=='checkbox'" style="cursor: auto" [attr.disabled]="true" [ngClass]="field.wide === true ? 'medium-width' : 'small-width'" class="input is-info" type="text" value="{{getInputField(field).value}} {{field.units}}" formControlName="{{field.name}}">
+                                    <input *ngIf="field.type==='checkbox'" style="cursor: auto" [attr.disabled]="true" class="wonka-checkbox" type="checkbox" value="{{getInputField(field).value}} {{field.units}}" formControlName="{{field.name}}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </article>
     </form>
 </section>
 

@@ -46,6 +46,7 @@ export interface ChartItem {
 export class ChartComponent implements OnInit {
 
   @Input() chart: ChartItem;
+  @Input() class: string;
 
   public chartType: string;
   public datasets: ChartDataSets[];
@@ -76,6 +77,9 @@ export class ChartComponent implements OnInit {
 
 
   ngOnInit() {
+    if (!this.class) {
+      this.class = '';
+    }
     this.chartType = this.chart.chartType;
     this.chartOptions.title.text =  this.chart.title;
     if (this.chart.colors) {

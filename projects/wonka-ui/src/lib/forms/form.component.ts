@@ -79,6 +79,8 @@ export class FormComponent implements OnInit, OnDestroy {
   @Input() form: FormItem;
   @Input() showConfirmation: boolean;
   @Input() showAbortButton: boolean;
+  @Input() class: string;
+
   @Output() formSubmitted: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
   @Output() buttonClicked: EventEmitter<string> = new EventEmitter<string>();
   @Output() fieldValueChanged: EventEmitter<{fieldName: string, value: string}> = new EventEmitter<{fieldName: string, value: string}>();
@@ -102,6 +104,9 @@ export class FormComponent implements OnInit, OnDestroy {
   constructor() { }
 
   ngOnInit() {
+    if (!this.class) {
+      this.class = '';
+    }
     this.createForm();
   }
 

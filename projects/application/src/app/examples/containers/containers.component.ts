@@ -14,7 +14,7 @@ export class ContainersComponent implements OnInit {
   explanation1: string;
   explanation2: string;
   explanation3: string;
-  multipleSelectItems: ListItem[];
+  listItems: ListItem[];
 
   tableItem: TableItem;
   tableData: string[][];
@@ -37,10 +37,11 @@ export class ContainersComponent implements OnInit {
     < lib-multiple-select
       [header]="'Multiple select example'"
       [items]="items"
+      [class]="'style-class'"
       (itemSelected)="show($event)"></lib-multiple-select>
 
     <i><b>Define itemSelected function in ts file:</b></i>
-    show(event: MultipleSelectItem) {
+    show(event: ListItem) {
       alert('Item clicked: ' + JSON.stringify(event, null, 2));
     }
 
@@ -59,7 +60,7 @@ export class ContainersComponent implements OnInit {
       header: 'Item 2 Header'
     }];`;
 
-    this.multipleSelectItems = [{
+    this.listItems = [{
       id: 'ID1',
       name: 'Item 1',
       path: 'item/',
@@ -80,6 +81,7 @@ export class ContainersComponent implements OnInit {
     <i><b>Include component in html template:</b></i>
     < lib-table
       [table]="tableItem"
+      [class]="'style-class'"
       (rowSelected)="showRow($event)"></lib-table>
 
     <i><b>Define rowSelected function in ts file:</b></i>
@@ -151,7 +153,9 @@ export class ContainersComponent implements OnInit {
     <b>Component for showing key-value-unit items in a simple list.</b>
 
     <i><b>Include component in html template:</b></i>
-    < lib-key-value-unit-list [listItem]="listItem"></lib-key-value-unit-list>
+    < lib-key-value-unit-list
+      [class]="'style-class'"
+      [listItem]="listItem"></lib-key-value-unit-list>
 
     <i><b>Define table item with data in ts file:</b></i>
     this.listItem = {

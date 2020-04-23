@@ -33,6 +33,7 @@ export class InfoComponent implements OnInit {
     < lib-info-panel
       [header]="header"
       [content]="content"
+      [class]="'style-class'"
       [imageClass]="imageClass"></lib-info-panel>
 
     <i><b>Define parameters in ts file:</b></i>
