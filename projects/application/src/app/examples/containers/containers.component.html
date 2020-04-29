@@ -4,19 +4,19 @@
             <div class="column"></div>
             <div class="column is-8">
                 <div class="header">Wonka Containers page example</div>
-                <lib-list [header]="'List example'" [items]="multipleSelectItems" (itemSelected)="show($event)"></lib-list>
+                <lib-list [header]="'List example'" [items]="listItems" [class]="'style-class'" (itemSelected)="show($event)"></lib-list>
                 <br>
                 <pre>
                     <code class="code" [innerHtml]="explanation1"></code>
                 </pre>
                 <br>
-                <lib-table [table]="tableItem" (rowSelected)="showRow($event)"></lib-table>
+                <lib-table [table]="tableItem" [class]="'style-class'" (rowSelected)="showRow($event)"></lib-table>
                 <br>
                 <pre>
                     <code class="code" [innerHtml]="explanation2"></code>
                 </pre>
                 <br>
-                <lib-key-value-unit-list [listItem]="listItem"></lib-key-value-unit-list>
+                <lib-key-value-unit-list [listItem]="listItem" [class]="'style-class'"></lib-key-value-unit-list>
                 <br>
                 <pre>
                     <code class="code" [innerHtml]="explanation3"></code>

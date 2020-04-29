@@ -21,11 +21,17 @@ export interface TableItem {
 export class TableComponent implements OnInit {
 
   @Input() table: TableItem;
+  @Input() class: string;
+
   @Output() rowSelected: EventEmitter<string[]> = new EventEmitter<string[]>();
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    if (!this.class) {
+      this.class = '';
+    }
+  }
 
   getTableId(id: string) {
     return 'table-' + id;

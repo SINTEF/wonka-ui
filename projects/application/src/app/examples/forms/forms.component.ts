@@ -33,6 +33,7 @@ export class FormsComponent implements OnInit {
     <i><b>Include component in html template:</b></i>
     < lib-form
         [form]="form1"
+        [class]="'style-class'"
         (formSubmitted)="onSubmit($event)"
         (formAborted)="onAbortForm()"></lib-form>
 
@@ -68,6 +69,7 @@ export class FormsComponent implements OnInit {
     <i><b>Include component in html template:</b></i>
     < lib-form
         [form]="form"
+        [class]="'style-class'"
         [showConfirmation]="showConfirmation"
         [showAbortButton]="showAbortButton"
         (formSubmitted)="onSubmit($event)"
@@ -217,6 +219,7 @@ export class FormsComponent implements OnInit {
         }, {
           label: 'Name',
           name: 'simpleName',
+          wide: true
         }
       ] as FormFieldItem[]
     } as FormItem;

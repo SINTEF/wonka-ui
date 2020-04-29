@@ -9,6 +9,7 @@ export class InfoPanelComponent implements OnInit {
   @Input() header: string;
   @Input() content: string;
   @Input() image?: string;
+  @Input() class?: string;
   @Input() imageClass?: string;
 
   constructor() { }
@@ -16,6 +17,9 @@ export class InfoPanelComponent implements OnInit {
   ngOnInit() {
     if (!this.imageClass) {
       this.imageClass = '';
+    }
+    if (!this.class) {
+      this.class = '';
     }
   }
 

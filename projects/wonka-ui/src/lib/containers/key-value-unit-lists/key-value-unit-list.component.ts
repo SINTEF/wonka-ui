@@ -16,6 +16,7 @@ export interface KeyValueUnitListItem {
 export class KeyValueUnitListComponent implements OnInit {
 
   @Input() listItem: KeyValueUnitListItem;
+  @Input() class: string;
 
   keySize: string;
   valueSize: string;
@@ -23,6 +24,9 @@ export class KeyValueUnitListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    if (!this.class) {
+      this.class = '';
+    }
     this.keySize = '65%';
     this.valueSize = '35%';
     this.name = this.listItem.name ? this.listItem.name : '';

@@ -14,9 +14,9 @@
     }
 </style>
 <section id="lib-key-value-unt-list" *ngIf="listItem">
-    <article class="panel is-info">
+    <article class="panel is-info" [ngClass]="class">
         <p class="panel-heading" [innerHtml]="name"></p>
-        <div class="panel-block text-background" *ngFor="let item of listItem.items; trackBy: trackByFn; let i = index;">
+        <div class="panel-block" *ngFor="let item of listItem.items; trackBy: trackByFn; let i = index;">
             <span class="units">
                 <span id="key-{{i}}" class="name" [innerHtml]="item.key" [ngStyle]="{'width': keySize}"></span>
                 <span id="value-{{i}}" class="value" [ngStyle]="{'width': valueSize}">

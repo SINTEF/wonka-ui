@@ -17,6 +17,7 @@ export class ListComponent implements OnInit {
   @Input() items: ListItem[];
   @Input() header: string;
   @Input() boundary: string;
+  @Input() class: string;
 
   @Output() itemSelected: EventEmitter<ListItem> = new EventEmitter<ListItem>();
 
@@ -24,6 +25,9 @@ export class ListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    if (!this.class) {
+      this.class = '';
+    }
   }
 
   select(item: ListItem) {

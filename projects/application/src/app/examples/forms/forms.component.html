@@ -6,6 +6,7 @@
                 <div class="header">Wonka Forms Page example</div>
                 <lib-form 
                     [form]="form1"
+                    [class]="'style-class'"
                     (formSubmitted)="onSubmit1($event)"></lib-form>
                 <br>
                 <pre>
@@ -14,6 +15,7 @@
                 <br>
                 <lib-form 
                     [form]="form2"
+                    [class]="'style-class'"
                     [showConfirmation]="showConfirmation"
                     [showAbortButton]="true" 
                     (formSubmitted)="onSubmit2($event)"

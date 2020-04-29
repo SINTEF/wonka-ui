@@ -22,7 +22,7 @@ export class ChartsComponent implements OnInit {
     <b>Component for showing 2D charts. Based on <a href="https://www.chartjs.org/" target="new">Chart.js</a></b>
 
     <i><b>Include component in html template:</b></i>
-    < lib-chart [chart]="chart"></lib-chart>
+    < lib-chart [chart]="chart" [class]="'style-class'"></lib-chart>
 
     <i><b>Define chart parameter with dataset(s) in ts file:</b></i>
     const dataset = [{
