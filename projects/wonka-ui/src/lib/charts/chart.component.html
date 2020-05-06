@@ -1,15 +1,40 @@
 <section id="lib-chart">
-    <article class="panel is-info" [ngClass]="class">
-        <p class="panel-heading" *ngIf="chart.title">
-            {{chart.title}}
+    <article class="panel is-info">
+        <p class="panel-heading" *ngIf="header">
+            {{header}}
         </p>
-        <canvas
-            baseChart
-            [chartType]="chartType"
-            [datasets]="datasets"
-            [options]="chartOptions"
-            [legend]="true"
-            [colors]="chartColors">
-        </canvas>
+        <div [id]="id" *ngIf="pieChartItem" class="class">
+            <canvas baseChart
+                class="style-class"
+                [data]= "pieChartItem.chartData"
+                [labels]="pieChartItem.chartLabels"
+                [chartType]="pieChartType"
+                [options]="pieChartOptions"
+                [colors]="pieChartColors"
+                [legend]="pieChartLegend">
+            </canvas>
+        </div>
+        <div [id]="id" *ngIf="lineChartItem" class="class">
+            <canvas baseChart
+                class="style-class"
+                [datasets]="lineChartItem.chartDataSets"
+                [labels]="lineChartItem.chartLabels"
+                [options]="lineChartOptions"
+                [colors]="lineChartColors"
+                [legend]="lineChartLegend"
+                [chartType]="lineChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)">
+            </canvas>
+        </div>
+        <div [id]="id" *ngIf="scatterChartItem" class="class">
+            <canvas baseChart
+                class="style-class"
+                [datasets]="scatterChartItem.chartData"
+                [options]="scatterChartOptions"
+                [chartType]="scatterChartType">
+            </canvas>
+        </div>
+
     </article>
 </section>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ChartItem, DatasetItem } from '../../../../../wonka-ui/src/lib/charts/chart.component';
+import { LineChartItem, PieChartItem, ScatterChartItem } from '../../../../../wonka-ui/src/lib/charts/chart.component';
+import { ChartDataSets } from '../../../../../wonka-ui/node_modules/@types/chart.js';
 
 @Component({
   selector: 'app-charts',
@@ -8,100 +9,162 @@ import { ChartItem, DatasetItem } from '../../../../../wonka-ui/src/lib/charts/c
 })
 export class ChartsComponent implements OnInit {
 
-  chart: ChartItem;
-  explanation: string;
+  lineChart: LineChartItem;
+  pieChart: PieChartItem;
+  scatterChart: ScatterChartItem;
+  lineChartExplanation: string;
+  pieChartExplanation: string;
+  scatterChartExplanation: string;
 
   constructor() { }
 
   ngOnInit() {
 
-    /**
-     * Adding demo text/code
-     */
-    this.explanation = `
-    <b>Component for showing 2D charts. Based on <a href="https://www.chartjs.org/" target="new">Chart.js</a></b>
+    this.lineChartExplanation = `
+    <b>Show 2D line charts. Based on <a href="https://www.chartjs.org/" target="new">Chart.js</a></b>
 
     <i><b>Include component in html template:</b></i>
-    < lib-chart [chart]="chart" [class]="'style-class'"></lib-chart>
+    < lib-chart [lineChartItem]="lineChart" [class]="'style-class'"></lib-chart>
 
     <i><b>Define chart parameter with dataset(s) in ts file:</b></i>
-    const dataset = [{
-      data: [
-        {x: 0, y: 0},
-        {x: 1, y: 0.5},
-        {x: 2, y: 1},
-        {x: 3, y: 1.75},
-        {x: 4, y: 3}
-      ],
-      name: 'Dataset 1',
-      label: 'Legend 1',
-      pointRadius: '5',
-      lineTension: 0
+    const lineChartDataSets = [{
+      data: [101, 104, 120, 145, 172, 191, 192],
+      label: 'Series A', lineTension: 0
     }, {
-      data: [
-        {x: 0, y: 0},
-        {x: 1, y: 1},
-        {x: 2, y: 2},
-        {x: 3, y: 3},
-        {x: 4, y: 4},
-        {x: 5, y: 5}
-      ],
-      name: 'Dataset 2',
-      label: 'Legend 2',
-      pointRadius: '5',
-      lineTension: 0
-    }] as Dataset[];
+      data: [91, 101, 99, 95, 85, 74, 73],
+      label: 'Series B', lineTension: 0
+    }, {
+      data: [22, 24, 27, 32, 40, 55, 73],
+      label: 'Series C', lineTension: 0
+    }, {
+      data: [13, 15, 18, 22, 27, 32, 37],
+      label: 'Series D', lineTension: 0
+    }, {
+      data: [137, 92, 57, 29, 18, 15, 13],
+      label: 'Series E', lineTension: 0
+    }, {
+      data: [150, 140, 130, 120, 110, 100, 90],
+      label: 'Series F', lineTension: 0
+    }] as ChartDataSets[];
 
-    this.chart = {
-      title: 'Chart title',
-      chartType: 'line',
-      xLabel: 'X-label',
-      yLabel: 'Y-label',
-      xAxesType: 'linear',
-      yAxesType: 'linear',
-      dataset
+    const lineChartLabels =
+      ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+    `;
+
+    const lineChartDataSets = [{
+      data: [101, 104, 120, 145, 172, 191, 192],
+      label: 'Series A', lineTension: 0
+    }, {
+      data: [91, 101, 99, 95, 85, 74, 73],
+      label: 'Series B', lineTension: 0
+    }, {
+      data: [22, 24, 27, 32, 40, 55, 73],
+      label: 'Series C', lineTension: 0
+    }, {
+      data: [13, 15, 18, 22, 27, 32, 37],
+      label: 'Series D', lineTension: 0
+    }, {
+      data: [137, 92, 57, 29, 18, 15, 13],
+      label: 'Series E', lineTension: 0
+    }, {
+      data: [150, 140, 130, 120, 110, 100, 90],
+      label: 'Series F', lineTension: 0
+    }] as ChartDataSets[];
+
+    const lineChartLabels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+
+    this.lineChart = {
+      chartDataSets: lineChartDataSets,
+      chartLabels: lineChartLabels
+    };
+
+    this.pieChartExplanation = `
+    <b>Show 2D pie charts. Based on <a href="https://www.chartjs.org/" target="new">Chart.js</a></b>
+
+    <i><b>Include component in html template:</b></i>
+    < lib-chart [pieChartItem]="pieChart" [class]="'style-class'"></lib-chart>
+
+    <i><b>Define chart parameter with dataset(s) in ts file:</b></i>
+    const pieChartDataSets = [105, 100, 95, 90, 85, 80, 57, 70, 65, 60];
+    const pieChartLabels = [
+          'Part 1', 'Part 2', 'Part 3', 'Part 4',
+          'Part 5', 'Part 6', 'Part 7', 'Part 8',
+          'Part 9', 'Part 10', 'Part 11', 'Part 12',
+          'Part 13', 'Part 14', 'Part 15', 'Part 16',
+          'Part 17', 'Part 18', 'Part 19', 'Part 20'];
+    `;
+    const pieChartDataSets = [105, 100, 95, 90, 85, 80, 75, 70, 65];
+    const pieChartLabels = [
+          'Part 1', 'Part 2', 'Part 3', 'Part 4',
+          'Part 5', 'Part 6', 'Part 7', 'Part 8',
+          'Part 9', 'Part 10', 'Part 11', 'Part 12',
+          'Part 13', 'Part 14', 'Part 15', 'Part 16',
+          'Part 17', 'Part 18', 'Part 19', 'Part 20'];
+
+    this.pieChart = {
+      chartData: pieChartDataSets,
+      chartLabels: pieChartLabels
+    };
+
+    this.scatterChartExplanation = `
+    <b>Show 2D scatter charts. Based on <a href="https://www.chartjs.org/" target="new">Chart.js</a></b>
+
+    <i><b>Include component in html template:</b></i>
+    < lib-chart [scatterChartItem]="scatterChart" [class]="'style-class'"></lib-chart>
+
+    <i><b>Define chart parameter with dataset(s) in ts file:</b></i>
+    const scatterChartData = [
+      {
+        data: [
+          { x: 1, y: 1 },
+          { x: 2, y: 3 },
+          { x: 3, y: -2 },
+          { x: 4, y: 4 },
+          { x: 4, y: 4.3 },
+          { x: 4, y: 4.6 },
+          { x: 4.2, y: 4.1 },
+          { x: 4.4, y: 3.8 },
+          { x: 5, y: 3.7 },
+          { x: 6, y: 1.5 },
+          { x: 7, y: 3 },
+          { x: 8, y: -2 },
+          { x: 9, y: 4 },
+          { x: 10, y: -3 },
+        ],
+        label: 'Series B',
+        pointRadius: 10
+      }
+    ];
+    this.scatterChart = {
+      chartData: scatterChartData
     };`;
+    const scatterChartData = [
+      {
+        data: [
+          { x: 1, y: 1 },
+          { x: 2, y: 3 },
+          { x: 3, y: -2 },
+          { x: 4, y: 4 },
+          { x: 4, y: 4.3 },
+          { x: 4, y: 4.6 },
+          { x: 4.2, y: 4.1 },
+          { x: 4.4, y: 3.8 },
+          { x: 5, y: 3.7 },
+          { x: 6, y: 1.5 },
+          { x: 7, y: 3 },
+          { x: 8, y: -2 },
+          { x: 9, y: 4 },
+          { x: 10, y: -3 },
+        ],
+        label: 'Series A',
+        pointRadius: 5,
+      },
 
-    /**
-     * Building a chart object to send to component
-     */
-    const dataset = [{
-      data: [
-        {x: 0, y: 0},
-        {x: 1, y: 0.5},
-        {x: 2, y: 1},
-        {x: 3, y: 1.75},
-        {x: 4, y: 3}
-      ],
-      name: 'Dataset 1',
-      label: 'Legend 1',
-      pointRadius: '5',
-      lineTension: 0
-    }, {
-      data: [
-        {x: 0, y: 0},
-        {x: 1, y: 1},
-        {x: 2, y: 2},
-        {x: 3, y: 3},
-        {x: 4, y: 4},
-        {x: 5, y: 5}
-      ],
-      name: 'Dataset 2',
-      label: 'Legend 2',
-      pointRadius: '5',
-      lineTension: 0
-    }] as DatasetItem[];
+    ];
+    this.scatterChart = {
+      chartData: scatterChartData
+    };
 
-    this.chart = {
-      title: 'Chart title',
-      chartType: 'line',
-      xLabel: 'X-label',
-      yLabel: 'Y-label',
-      xAxesType: 'linear',
-      yAxesType: 'linear',
-      dataset
-    } as ChartItem;
-    console.log('chart example:', this.chart);
   }
 
 }
