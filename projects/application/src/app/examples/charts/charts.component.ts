@@ -24,7 +24,11 @@ export class ChartsComponent implements OnInit {
     <b>Show 2D line charts. Based on <a href="https://www.chartjs.org/" target="new">Chart.js</a></b>
 
     <i><b>Include component in html template:</b></i>
-    < lib-chart [lineChartItem]="lineChart" [class]="'style-class'"></lib-chart>
+    < lib-chart
+        [lineChartItem]="lineChart"
+        [id]="'line-1'"
+        [class]="'style-class'"
+        [header]="'Line chart example'"></lib-chart>
 
     <i><b>Define chart parameter with dataset(s) in ts file:</b></i>
     const lineChartDataSets = [{
@@ -82,24 +86,28 @@ export class ChartsComponent implements OnInit {
     <b>Show 2D pie charts. Based on <a href="https://www.chartjs.org/" target="new">Chart.js</a></b>
 
     <i><b>Include component in html template:</b></i>
-    < lib-chart [pieChartItem]="pieChart" [class]="'style-class'"></lib-chart>
+    < lib-chart
+        [pieChartItem]="pieChart"
+        [id]="'pie-1'"
+        [class]="'style-class'">
+    </lib-chart>
 
     <i><b>Define chart parameter with dataset(s) in ts file:</b></i>
-    const pieChartDataSets = [105, 100, 95, 90, 85, 80, 57, 70, 65, 60];
-    const pieChartLabels = [
-          'Part 1', 'Part 2', 'Part 3', 'Part 4',
-          'Part 5', 'Part 6', 'Part 7', 'Part 8',
-          'Part 9', 'Part 10', 'Part 11', 'Part 12',
-          'Part 13', 'Part 14', 'Part 15', 'Part 16',
-          'Part 17', 'Part 18', 'Part 19', 'Part 20'];
-    `;
     const pieChartDataSets = [105, 100, 95, 90, 85, 80, 75, 70, 65];
     const pieChartLabels = [
           'Part 1', 'Part 2', 'Part 3', 'Part 4',
           'Part 5', 'Part 6', 'Part 7', 'Part 8',
-          'Part 9', 'Part 10', 'Part 11', 'Part 12',
-          'Part 13', 'Part 14', 'Part 15', 'Part 16',
-          'Part 17', 'Part 18', 'Part 19', 'Part 20'];
+          'Part 9'];
+
+    this.pieChart = {
+      chartData: pieChartDataSets,
+      chartLabels: pieChartLabels
+    };`;
+    const pieChartDataSets = [105, 100, 95, 90, 85, 80, 75, 70, 65];
+    const pieChartLabels = [
+          'Part 1', 'Part 2', 'Part 3', 'Part 4',
+          'Part 5', 'Part 6', 'Part 7', 'Part 8',
+          'Part 9'];
 
     this.pieChart = {
       chartData: pieChartDataSets,
@@ -131,9 +139,10 @@ export class ChartsComponent implements OnInit {
           { x: 9, y: 4 },
           { x: 10, y: -3 },
         ],
-        label: 'Series B',
-        pointRadius: 10
-      }
+        label: 'Series A',
+        pointRadius: 5,
+      },
+
     ];
     this.scatterChart = {
       chartData: scatterChartData
