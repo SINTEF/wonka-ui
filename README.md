@@ -378,12 +378,12 @@ this.listItem = {
 ![List screenshot](screenshots/sc_list.png "List screenshot")   
 Include component in html template:  
 ```shell
-<lib-multiple-select
+<lib-list
     [header]="'Multiple select example'"
     [items]="items"
     [class]="'style-class'"
     (itemSelected)="show($event)">
-</lib-multiple-select>
+</lib-list>
 ```
 Define items and itemSelected function in ts file:  
 ```shell
@@ -481,7 +481,7 @@ this.tableItem = {
   }, {
     columnName: 'Status',
     width: 15
-  }] as TableColumn[],
+  }] as TableColumnItem[],
   data: [
     ['Item 1', '21.12.2019', 'Approved'],
     ['Item 2', '23.12.2019', 'Approved'],
