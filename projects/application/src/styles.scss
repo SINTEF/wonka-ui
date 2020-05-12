@@ -31,6 +31,7 @@ $section-padding: 1.0rem 1.0rem;
 $panel-heading-line-height: 1.0;
 $panel-heading-weight: 'normal';
 $panel-heading-size: 1.0;
+$panel-radius: 0px;
 $panel-tabs-font-size: 0.5;
 
 $menu-item-active-background-color: $green;
@@ -137,4 +138,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     background-repeat: no-repeat;
     background-image: url('./assets/img/default-avatar.webp');
     height: 100%; width: 100%;
+}
+
+.style-class {
+    background-color: #fefefe;
 }

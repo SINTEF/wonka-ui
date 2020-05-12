@@ -16,6 +16,9 @@ wonka-ui is a front-end/user interface framework written in Angular and Typescri
 Table of contents
 
 * [Chart](#chart)
+* * [Line chart](#line-chart)
+* * [Pie chart](#line-chart)
+* * [Scatter chart](#scatter-chart)
 * [Form](#form)
 * [Info](#info)
 * [Key-value-unit list](#key-value-unit-list)
@@ -27,52 +30,118 @@ Table of contents
 * [License](#license)
   
 ## Chart
-#### Chart.js wrapper for showing 2D charts.  
+#### Line chart
+#### Chart.js wrapper for showing 2D line charts.  
+![Line chart screenshot](screenshots/sc_line_chart.png "Line chart screenshot")  
 Include component in html template:
 ```shell
-<lib-chart [chart]="chart"
+<lib-chart
+    [lineChartItem]="lineChart"
+    [id]="'line-1'"
+    [class]="'style-class'"
+    [header]="'Line chart example'">
+</lib-chart>
+```
+Define chart parameter with dataset(s) in ts file:
+```shell
+const lineChartDataSets = [{
+  data: [101, 104, 120, 145, 172, 191, 192],
+  label: 'Series A', lineTension: 0
+}, {
+  data: [91, 101, 99, 95, 85, 74, 73],
+  label: 'Series B', lineTension: 0
+}, {
+  data: [22, 24, 27, 32, 40, 55, 73],
+  label: 'Series C', lineTension: 0
+}, {
+  data: [13, 15, 18, 22, 27, 32, 37],
+  label: 'Series D', lineTension: 0
+}, {
+  data: [137, 92, 57, 29, 18, 15, 13],
+  label: 'Series E', lineTension: 0
+}, {
+  data: [150, 140, 130, 120, 110, 100, 90],
+  label: 'Series F', lineTension: 0
+}] as ChartDataSets[];
+
+const lineChartLabels =
+  ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+
+this.lineChart = {
+  chartDataSets: lineChartDataSets,
+  chartLabels: lineChartLabels
+};
+`;
+```
+
+#### Pie chart
+#### Chart.js wrapper for showing 2D pie charts. 
+![Pie chart screenshot](screenshots/sc_pie_chart.png "Pie chart screenshot")  
+Include component in html template:
+```shell
+<lib-chart
+    [pieChartItem]="pieChart"
+    [id]="'pie-1'"
     [class]="'style-class'">
 </lib-chart>
 ```
 Define chart parameter with dataset(s) in ts file:
 ```shell
-const dataset = [{
-  data: [
-    {x: 0, y: 0},
-    {x: 1, y: 0.5},
-    {x: 2, y: 1},
-    {x: 3, y: 1.75},
-    {x: 4, y: 3}
-  ],
-  name: 'Dataset 1',
-  label: 'Legend 1',
-  pointRadius: '5',
-  lineTension: 0
-}, {
-  data: [
-    {x: 0, y: 0},
-    {x: 1, y: 1},
-    {x: 2, y: 2},
-    {x: 3, y: 3},
-    {x: 4, y: 4},
-    {x: 5, y: 5}
-  ],
-  name: 'Dataset 2',
-  label: 'Legend 2',
-  pointRadius: '5',
-  lineTension: 0
-}] as Dataset[];
+const pieChartDataSets = [105, 100, 95, 90, 85, 80, 75, 70, 65];
+const pieChartLabels = [
+      'Part 1', 'Part 2', 'Part 3', 'Part 4',
+      'Part 5', 'Part 6', 'Part 7', 'Part 8',
+      'Part 9'];
 
-this.chart = {
-  title: 'Chart title',
-  chartType: 'line',
-  xLabel: 'X-label',
-  yLabel: 'Y-label',
-  xAxesType: 'linear',
-  yAxesType: 'linear',
-  dataset
-}
+this.pieChart = {
+  chartData: pieChartDataSets,
+  chartLabels: pieChartLabels
+};
+`;
 ```
+
+#### Scatter chart
+#### Chart.js wrapper for showing 2D scatter charts.  
+![Scatter chart screenshot](screenshots/sc_scatter_chart.png "Scatter chart screenshot")  
+Include component in html template:
+```shell
+<lib-chart
+    [scatterChartItem]="scatterChart"
+    [id]="'scatter-1'"
+    [class]="'style-class'">
+</lib-chart>
+```
+Define chart parameter with dataset(s) in ts file:
+```shell
+const scatterChartData = [
+  {
+    data: [
+      { x: 1, y: 1 },
+      { x: 2, y: 3 },
+      { x: 3, y: -2 },
+      { x: 4, y: 4 },
+      { x: 4, y: 4.3 },
+      { x: 4, y: 4.6 },
+      { x: 4.2, y: 4.1 },
+      { x: 4.4, y: 3.8 },
+      { x: 5, y: 3.7 },
+      { x: 6, y: 1.5 },
+      { x: 7, y: 3 },
+      { x: 8, y: -2 },
+      { x: 9, y: 4 },
+      { x: 10, y: -3 },
+    ],
+    label: 'Series A',
+    pointRadius: 5,
+  },
+
+];
+this.scatterChart = {
+  chartData: scatterChartData
+};
+`;
+```
+
 
 ## Form
 #### Simple generic reactive form example
@@ -111,7 +180,8 @@ onSubmit(formGroup: FormGroup) {
 }
 ```
 
-#### Advanced generic form example   
+#### Advanced generic form example  
+![Form screenshot](screenshots/sc_form.png "Form screenshot")   
 Include component in html template:  
 ```shell
 <lib-form
@@ -255,6 +325,7 @@ onButtonClicked(id: string) {
 
 ## Info
 #### Simple info module with header, content and image.  
+![Info screenshot](screenshots/sc_info.png "Info screenshot")   
 Include component in html template:  
 ```shell
 <lib-info-panel
@@ -273,6 +344,7 @@ const imageClass = 'image-class';
 
 ## Key-value-unit list
 #### Simple key-value-unit list.  
+![Key-value-unit list screenshot](screenshots/sc_key-value.png "Key-value-unit list screenshot")   
 Include component in html template:
 ```shell
 <lib-key-value-unit-list
@@ -303,14 +375,15 @@ this.listItem = {
 
 ## List
 #### Simple list with selectable list items, emits event on item click.  
+![List screenshot](screenshots/sc_list.png "List screenshot")   
 Include component in html template:  
 ```shell
-<lib-multiple-select
+<lib-list
     [header]="'Multiple select example'"
     [items]="items"
     [class]="'style-class'"
     (itemSelected)="show($event)">
-</lib-multiple-select>
+</lib-list>
 ```
 Define items and itemSelected function in ts file:  
 ```shell
@@ -335,6 +408,7 @@ show(event: ListItem) {
 
 ## Navigation bar
 #### Simple Bulma-based navigation bar.  
+![Navbar screenshot](screenshots/sc_navbar.png "Navigation bar screenshot")   
 Include component in html template:  
 ```shell
 <lib-navigation-bar
@@ -385,6 +459,7 @@ search(criteria: string) {
 
 ## Table
 #### Simple table with selectable rows, emits event on row click  
+![Table screenshot](screenshots/sc_table.png "Table screenshot")   
 Include component in html template:  
 ```shell
 <lib-table
@@ -406,7 +481,7 @@ this.tableItem = {
   }, {
     columnName: 'Status',
     width: 15
-  }] as TableColumn[],
+  }] as TableColumnItem[],
   data: [
     ['Item 1', '21.12.2019', 'Approved'],
     ['Item 2', '23.12.2019', 'Approved'],

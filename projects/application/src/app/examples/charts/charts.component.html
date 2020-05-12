@@ -22,14 +22,39 @@
         <div class="columns">
             <div class="column"></div>
             <div class="column is-8">
-                <div class="header">Wonka Charts example</div>
-                <lib-chart *ngIf="chart" [chart]="chart" [class]="'style-class'"></lib-chart>
+                <div class="header">Line Charts example</div>
+                <lib-chart *ngIf="lineChart" [lineChartItem]="lineChart" [id]="'line-1'" [class]="'style-class'" [header]="'Line charts example'"></lib-chart>
                 <br>
                 <pre>
-                    <code class="code" [innerHtml]="explanation"></code>
+                    <code class="code" [innerHtml]="lineChartExplanation"></code>
                 </pre>
             </div>
             <div class="column"></div>
         </div>
+        <div class="columns">
+            <div class="column"></div>
+            <div class="column is-8">
+                <div class="header">Pie Charts example</div>
+                <lib-chart *ngIf="pieChart" [pieChartItem]="pieChart" [id]="'pie-1'" [class]="'style-class'"></lib-chart>
+                <br>
+                <pre>
+                    <code class="code" [innerHtml]="pieChartExplanation"></code>
+                </pre>
+            </div>
+            <div class="column"></div>
+        </div>
+        <div class="columns">
+            <div class="column"></div>
+            <div class="column is-8">
+                <div class="header">Scatter Charts example</div>
+                <lib-chart *ngIf="scatterChart" [scatterChartItem]="scatterChart" [id]="'scatter-1'" [class]="'style-class'"></lib-chart>
+                <br>
+                <pre>
+                    <code class="code" [innerHtml]="scatterChartExplanation"></code>
+                </pre>
+            </div>
+            <div class="column"></div>
+        </div>
+
     </div>
 </div>
