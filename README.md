@@ -217,7 +217,7 @@ form = {
           label: 'Button 3'
         }
       ] as FormButton[],
-      fields: [
+            fields: [
         {
           label: 'Main category',
           name: 'categoryAddNew',
@@ -242,6 +242,15 @@ form = {
           type: 'string',
           wide: true,
           info: 'Required field, text, wide, no restrictions'
+        }, {
+          label: 'Amount',
+          name: 'amountSelectUnits',
+          required: true,
+          type: 'select',
+          options: ['400', '600', '800'],
+          wide: true,
+          info: 'Selectable units',
+          units: ['Kilograms', 'Meters']
         }, {
           label: 'Depth',
           description: 'This is the description of the field.',
@@ -305,6 +314,13 @@ form = {
           name: 'noInfo',
           wide: false,
           type: 'string',
+        }, {
+          label: 'Direction',
+          name: 'direction',
+          required: true,
+          type: 'radio',
+          options: ['North', 'South', 'East', 'West'],
+          info: 'Radio button group'
         }
       ] as FormFieldItem[]
     } as FormItem;

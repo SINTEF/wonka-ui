@@ -32,7 +32,7 @@ describe('FormComponent', () => {
         {
           id: '1',
           label: 'Button 1',
-          class: 'is-primary'
+          class: 'test-button'
         }
       ] as FormButton[],
       fields: [
@@ -70,6 +70,13 @@ describe('FormComponent', () => {
           max: 100,
           expression: '^[\+\-]?([0-9]+([.][0-9]*)?|[.][0-9]+)$',
           info: 'Required field, value between -100 and 100'
+        }, {
+          label: 'Direction',
+          name: 'direction',
+          required: true,
+          type: 'radio',
+          options: ['North', 'South', 'East', 'West'],
+          info: 'Radio button group'
         }
       ] as FormFieldItem[]
     } as FormItem;
@@ -86,11 +93,13 @@ describe('FormComponent', () => {
     const depth = component.sintefForm.controls.depth;
     const size = component.sintefForm.controls.size;
     const temperature = component.sintefForm.controls.temperature;
+    const direction = component.sintefForm.controls.direction;
 
     expect(name.valid).toBeFalsy();
     expect(depth.valid).toBeTruthy();
     expect(size.valid).toBeFalsy();
     expect(temperature.valid).toBeFalsy();
+    expect(direction.valid).toBeFalsy();
     expect(component.sintefForm.valid).toBeFalsy();
   });
 
@@ -99,16 +108,19 @@ describe('FormComponent', () => {
     const depth = component.sintefForm.controls.depth;
     const size = component.sintefForm.controls.size;
     const temperature = component.sintefForm.controls.temperature;
+    const direction = component.sintefForm.controls.direction;
 
     name.setValue('Field name');
     depth.setValue(100);
     size.setValue(5);
     temperature.setValue(-25);
+    direction.setValue('West');
 
     expect(name.valid).toBeTruthy();
     expect(depth.valid).toBeTruthy();
     expect(size.valid).toBeTruthy();
     expect(temperature.valid).toBeTruthy();
+    expect(direction.valid).toBeTruthy();
     expect(component.sintefForm.valid).toBeTruthy();
   });
 
@@ -117,16 +129,19 @@ describe('FormComponent', () => {
     const depth = component.sintefForm.controls.depth;
     const size = component.sintefForm.controls.size;
     const temperature = component.sintefForm.controls.temperature;
+    const direction = component.sintefForm.controls.direction;
 
     name.setValue(10);
     depth.setValue('text');
     size.setValue(500);
     temperature.setValue(-110);
+    direction.setValue(null);
 
     expect(name.valid).toBeTruthy();
     expect(depth.valid).toBeFalsy();
     expect(size.valid).toBeFalsy();
     expect(temperature.valid).toBeFalsy();
+    expect(direction.valid).toBeFalsy();
     expect(component.sintefForm.valid).toBeFalsy();
   });
 
@@ -135,11 +150,13 @@ describe('FormComponent', () => {
     const depth = component.sintefForm.controls.depth;
     const size = component.sintefForm.controls.size;
     const temperature = component.sintefForm.controls.temperature;
+    const direction = component.sintefForm.controls.direction;
 
     name.setValue('Field name');
     depth.setValue(100);
     size.setValue(5);
     temperature.setValue(-25);
+    direction.setValue('West');
 
     const form = fixture.debugElement.query(By.css('form'));
     form.triggerEventHandler('submit', null);
@@ -151,7 +168,8 @@ describe('FormComponent', () => {
   });
 
   it('should emit when button is clicked', () => {
-    const button = fixture.debugElement.query(By.css('.button')).nativeElement;
+
+    const button = fixture.debugElement.query(By.css('.test-button')).nativeElement;
     spyOn(component.buttonClicked, 'emit');
     button.click();
     expect(component.buttonClicked.emit).toHaveBeenCalledWith('1');

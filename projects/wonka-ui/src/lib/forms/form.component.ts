@@ -38,7 +38,7 @@ export interface FormFieldItem {
     /** Optional. Visible behind input field if it exists. */
     checked?: boolean;
     /** Optional. Used for type checkbox. */
-    units?: string;
+    units?: string | string[];
     /** Optional. Minimum value validator. */
     min?: number;
     /** Optional. Maximum value validator. */
@@ -107,17 +107,22 @@ export class FormComponent implements OnInit, OnDestroy {
     if (!this.class) {
       this.class = '';
     }
+
     this.createForm();
   }
 
   createNew(name: string, index: number) {
-    this.sintefForm.get(name).setValue('');
+    if (this.showCreateNew[index]) {
+      const formField = this.form.fields.find((field) => {
+        return field.name === name;
+      });
+      this.sintefForm.get(name + '_new').setValue('');
+      this.sintefForm.get(name).setValue(formField.options[0]);
+    } else {
+      this.sintefForm.get(name).setValue('');
+    }
     this.sintefForm.get(name).updateValueAndValidity();
     this.showCreateNew[index] =  !this.showCreateNew[index];
-    this.sintefForm.get(name + '_new')
-      .setValue(
-        this.showCreateNew[index] ? true : false
-      );
   }
 
   private createForm(): void {
@@ -137,7 +142,12 @@ export class FormComponent implements OnInit, OnDestroy {
       if (controlInfo.type === 'select' && controlInfo.options) {
         control.setValue(controlInfo.options[0]);
         if (controlInfo.canCreate) {
-          form.addControl(controlInfo.name + '_new', new FormControl(false));
+          form.addControl(controlInfo.name + '_new', new FormControl(controlInfo.options[0]));
+        }
+        if (controlInfo.units && !this.isString(controlInfo.units)) {
+          const unitControl = new FormControl(false);
+          unitControl.setValue(controlInfo.units[0]);
+          form.addControl(controlInfo.name + '_unit', unitControl);
         }
       }
       if (controlInfo.type === 'checkbox' && controlInfo.checked) {
@@ -161,6 +171,10 @@ export class FormComponent implements OnInit, OnDestroy {
 
   get f() {
     return this.sintefForm.controls;
+  }
+
+  isString(field: string | string[]): boolean {
+    return typeof field === 'string';
   }
 
   getInputField(field: FormFieldItem) {

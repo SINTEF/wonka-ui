@@ -7,13 +7,21 @@
                 </div>
                 <div class="field is-horizontal" *ngFor="let field of form.fields; trackBy: trackByFn; let i = index;" [ngClass]="field.class">
                     <div class="field-label is-normal">
-                        <label class="label" *ngIf="!showCreateNew[i]">{{ field.label }}</label>
-                        <label class="label" *ngIf="field.type === 'select' && showCreateNew[i] && field.newLabel">{{ field.newLabel }}</label>
+                        <label class="label">{{ field.label }}</label>
                     </div>
                     <div class="field-body">
                         <div class="field">
                             <div class="control">
                                 <div class="field is-horizontal">
+                                    
+                                    <div *ngIf="field.type === 'radio'" class="input medium-width">
+                                        <div *ngFor="let option of field.options; trackBy: trackByFn;"
+                                            type="text"
+                                            class="is-info radio">
+                                            <input id="{{option}}" type="radio" name="{{field.name}}" value="{{option}}" formControlName="{{field.name}}">
+                                            {{option}}
+                                        </div>
+                                    </div>
                                     <select *ngIf="field.type === 'select' && !showCreateNew[i]"
                                         type="text"
                                         class="input is-info medium-width"
@@ -25,7 +33,7 @@
                                         [ngClass]="(submitted && getInputField(field).errors) ? ('invalid ' + (field.wide === true ? 'medium-width' : 'small-width')) : (field.wide === true ? 'medium-width' : 'small-width')"
                                         class="input is-info medium-width"
                                         type="text"
-                                        placeholder=""
+                                        placeholder="Type in the new {{field.label.toLowerCase()}}"
                                         id="{{field.name}}"
                                         formControlName="{{field.name}}">
 
@@ -44,27 +52,38 @@
                                         id="{{field.name}}"
                                         formControlName="{{field.name}}">
 
-                                    <div style="min-width: 1px;" class="input-line">{{ field.units }}</div>
+                                    <select *ngIf="field.units && !isString(field.units)"
+                                        type="text"
+                                        class="input is-info small-width"
+                                        id="{{field.units}}_unit"
+                                        formControlName="{{field.name}}_unit">
+                                        <option *ngFor="let unit of field.units; trackBy: trackByFn;" value="{{unit}}">{{unit}}</option>
+                                    </select>
 
-                                    <a *ngIf="field.type === 'select' && field.canCreate"
+                                    <div style="min-width: 1px;" class="input-line" *ngIf="field.units && isString(field.units)">
+                                        {{ field.units }}
+                                    </div>
+                                    <div
+                                        class="button is-primary"
+                                        style="width: 60px; margin-left: 5px;"
+                                        *ngIf="field.type === 'select' && field.canCreate && showCreateNew[i]"
                                         (click)="createNew(field.name, i)">
-                                        <i *ngIf="showCreateNew[i]"
-                                            style="text-align: right; width: 20px;"
-                                            class="material-icons is-primary info-icon input-line link"
-                                            title="{{field.useExisting}}">
-                                            list
-                                        </i>
-                                        <i *ngIf="!showCreateNew[i]"
-                                            style="text-align: right; width: 20px;"
-                                            class="material-icons is-primary info-icon input-line link"
-                                            title="{{field.createNew}}">
-                                            add_box
-                                        </i>
-                                    </a>
-                                    &nbsp;
-                                    <mat-icon *ngIf="field.info" style="text-align: right; width: 20px;" aria-hidden="false" aria-label="icon" class="is-primary info-icon input-line link" (click)="info(field)">info</mat-icon>
-                                    <!--<mat-icon *ngIf="!field.info" style="color: lightgray; text-align: right; width: 20px;" aria-hidden="false" aria-label="icon" class="is-light info-icon input-line">info</mat-icon>-->
-
+                                        Cancel
+                                    </div>
+                                    <div
+                                        class="button is-primary"
+                                        style="width: 60px; margin-left: 5px;"
+                                        *ngIf="field.type === 'select' && field.canCreate && !showCreateNew[i]"
+                                        (click)="createNew(field.name, i)">
+                                        New
+                                    </div>
+                                    <div
+                                        *ngIf="field.info"
+                                        class="button is-primary"
+                                        style="width: 40px; margin-left: 5px;"
+                                        (click)="info(field)">
+                                        Info
+                                    </div>
                                 </div>
                                 
                                 <div *ngIf="submitted && getInputField(field).errors">

@@ -42,7 +42,7 @@
                   <li class="navbar-item" *ngIf="user">
                     {{ user ? user.email : '' }}
                   </li>
-                  <button class="is-small button {{ user ? 'is-light' : 'is-primary' }}" (click)="authorize()">
+                  <button id="login-button" class="is-small button {{ user ? 'is-light' : 'is-primary' }}" (click)="authorize()">
                     <strong *ngIf="user">{{ logout }}</strong>
                     <strong *ngIf="!user">{{ login }}</strong>
                   </button>
