@@ -2,7 +2,6 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ChartComponent } from './chart.component';
 import { ChartsModule } from 'ng2-charts';
 import { By } from '@angular/platform-browser';
-import { ChartDataSets } from 'chart.js';
 
 describe('ChartComponent', () => {
   let component: ChartComponent;
@@ -18,7 +17,7 @@ describe('ChartComponent', () => {
       ],
       providers: []
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   it('should create', () => {
@@ -47,7 +46,7 @@ describe('ChartComponent', () => {
     }, {
       data: [150, 140, 130, 120, 110, 100, 90],
       label: 'Series F', lineTension: 0
-    }] as ChartDataSets[];
+    }];
 
     const lineChartLabels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
 
@@ -71,9 +70,9 @@ describe('ChartComponent', () => {
   it('should provide pie chart object', () => {
     const pieChartDataSets = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120];
     const pieChartLabels = [
-          'Part 1', 'Part 2', 'Part 3', 'Part 4',
-          'Part 5', 'Part 6', 'Part 7', 'Part 8',
-          'Part 9', 'Part 10', 'Part 11', 'Part 12'];
+      'Part 1', 'Part 2', 'Part 3', 'Part 4',
+      'Part 5', 'Part 6', 'Part 7', 'Part 8',
+      'Part 9', 'Part 10', 'Part 11', 'Part 12'];
 
     const pieChart = {
       chartData: pieChartDataSets,
