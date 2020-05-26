@@ -9,7 +9,6 @@ import { ChartsModule } from 'ng2-charts';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppRoutingModule } from 'src/app/app-routing.module';
-import { MatIcon } from '@angular/material/icon';
 import { TableComponent } from '../../../../../wonka-ui/src/lib/containers/tables/table.component';
 import { FormComponent } from '../../../../../wonka-ui/src/lib/forms/form.component';
 import { ListComponent } from '../../../../../wonka-ui/src/lib/containers/lists/list.component';
@@ -32,7 +31,6 @@ describe('InfoComponent', () => {
         AppRoutingModule
       ],
       declarations: [
-        MatIcon,
         KeyValueUnitListComponent,
         TableComponent,
         FormComponent,

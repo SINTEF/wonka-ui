@@ -10,7 +10,6 @@ import { ChartsModule } from 'ng2-charts';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppRoutingModule } from 'src/app/app-routing.module';
-import { MatIcon } from '@angular/material/icon';
 import { FormComponent } from '../../../../../wonka-ui/src/lib/forms/form.component';
 import { InfoPanelComponent } from '../../../../../wonka-ui/src/lib/info/info-panel.component';
 import { MockComponent } from 'ng-mocks';
@@ -32,7 +31,6 @@ describe('ContainersComponent', () => {
         AppRoutingModule
       ],
       declarations: [
-        MatIcon,
         KeyValueUnitListComponent,
         TableComponent,
         FormComponent,

@@ -31,12 +31,11 @@
               <div class="buttons">
                 <span *ngIf="showSearch" class="navbar-item">
                   <input class="input is-small" style="width: 200px;" type="text" [(ngModel)]="searchword" (keyup.enter)="searchThis()">
-                  <i style="padding-left: 2px; padding-top: 5px;"
-                    (click)="searchThis()"
-                    class="material-icons is-active input-line link"
+                  <a (click)="searchThis()"
+                    class="navbar-item"
                     title="Search">
-                    search
-                  </i>
+                    Search
+                </a>
                 </span>
                 <span *ngIf="showLoginButton" class="navbar-item">
                   <li class="navbar-item" *ngIf="user">

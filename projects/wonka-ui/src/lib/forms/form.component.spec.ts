@@ -1,7 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormComponent, FormFieldItem, FormItem, FormButton } from './form.component';
-import { MatIconModule } from '@angular/material/icon';
 import { By } from '@angular/platform-browser';
 
 describe('FormComponent', () => {
@@ -12,8 +11,7 @@ describe('FormComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         FormsModule,
-        ReactiveFormsModule,
-        MatIconModule
+        ReactiveFormsModule
       ],
       declarations: [
         FormComponent ]
