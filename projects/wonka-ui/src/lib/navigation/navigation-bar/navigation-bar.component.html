@@ -32,6 +32,7 @@
                 <span *ngIf="showSearch" class="navbar-item">
                   <input class="input is-small" style="width: 200px;" type="text" [(ngModel)]="searchword" (keyup.enter)="searchThis()">
                   <a (click)="searchThis()"
+                    id="search-button"
                     class="navbar-item"
                     title="Search">
                     Search

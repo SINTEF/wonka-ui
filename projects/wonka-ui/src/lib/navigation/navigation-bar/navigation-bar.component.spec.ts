@@ -97,7 +97,7 @@ describe('NavigationBarComponent', () => {
   });
 
   it('should emit when search button is clicked', () => {
-    const searchBtn = fixture.debugElement.query(By.css('.input-line')).nativeElement;
+    const searchBtn = fixture.debugElement.query(By.css('#search-button')).nativeElement;
     spyOn(component.searchcriteria, 'emit');
     searchBtn.click();
     expect(component.searchcriteria.emit).toHaveBeenCalled();
