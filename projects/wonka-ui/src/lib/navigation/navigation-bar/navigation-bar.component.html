@@ -14,13 +14,13 @@
 
         <div id="navbarBasicExample" class="navbar-menu">
 <!-- User logged in -->
-          <div id="loggedIn" class="navbar-start"  *ngIf="user">
+          <div id="loggedIn" class="navbar-start" *ngIf="user">
             <a *ngFor="let menuElement of menu; trackBy: trackByFn;" class="navbar-item" [routerLink]="menuElement.path">
               {{ menuElement.name }}
             </a>
           </div>
 <!-- User not logged in -->
-          <div id="loggedOut" class="navbar-start"  *ngIf="!user">
+          <div id="loggedOut" class="navbar-start" *ngIf="!user">
             <span *ngFor="let menuElement of menu; trackBy: trackByFn;" class="navbar-item is-disabled">
               {{ menuElement.name }}
             </span>
@@ -30,7 +30,7 @@
             <div class="navbar-item">
               <div class="buttons">
                 <span *ngIf="showSearch" class="navbar-item">
-                  <input class="input is-small" style="width: 200px;" type="text" [(ngModel)]="searchword" (keyup.enter)="searchThis()">
+                    <input class="input search-input is-small" type="text" [(ngModel)]="searchword" (keyup.enter)="searchThis()">
                   <a (click)="searchThis()"
                     id="search-button"
                     class="navbar-item"
@@ -42,7 +42,7 @@
                   <li class="navbar-item" *ngIf="user">
                     {{ user ? user.email : '' }}
                   </li>
-                  <button id="login-button" class="is-small button {{ user ? 'is-light' : 'is-primary' }}" (click)="authorize()">
+                  <button id="login-button" class="button login-button {{ user ? 'is-light' : 'is-primary' }}" (click)="authorize()">
                     <strong *ngIf="user">{{ logout }}</strong>
                     <strong *ngIf="!user">{{ login }}</strong>
                   </button>
