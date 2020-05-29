@@ -14,7 +14,8 @@ export interface User {
 
 @Component({
   selector: 'lib-navigation-bar',
-  templateUrl: './navigation-bar.component.html'
+  templateUrl: './navigation-bar.component.html',
+  styleUrls: ['./navigation-bar.component.scss']
 })
 /** UI class for displaying a Bulma-based navigation bar.  */
 export class NavigationBarComponent implements OnInit {

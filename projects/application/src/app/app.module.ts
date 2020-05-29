@@ -11,7 +11,6 @@ import { InfoComponent } from './examples/info/info.component';
 import { FormsComponent } from './examples/forms/forms.component';
 import { ChartsModule } from 'ng2-charts';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatIconModule } from '@angular/material/icon';
 import { NavigationBarComponent } from '../../../wonka-ui/src/lib/navigation/navigation-bar/navigation-bar.component';
 import { FormComponent } from '../../../wonka-ui/src/lib/forms/form.component';
 import { ChartComponent } from '../../../wonka-ui/src/lib/charts/chart.component';
@@ -42,7 +41,6 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     RouterModule,
     HttpClientModule,
-    MatIconModule,
     FormsModule,
     ChartsModule,
     ReactiveFormsModule,

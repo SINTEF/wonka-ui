@@ -5,7 +5,6 @@ import { InfoComponent } from '../info/info.component';
 import { ContainersComponent } from '../containers/containers.component';
 import { ChartsComponent } from '../charts/charts.component';
 import { InfoPanelComponent } from '../../../../../wonka-ui/src/lib/info/info-panel.component';
-import { MatIcon } from '@angular/material/icon';
 import { TableComponent } from '../../../../../wonka-ui/src/lib/containers/tables/table.component';
 import { FormComponent } from '../../../../../wonka-ui/src/lib/forms/form.component';
 import { ListComponent } from '../../../../../wonka-ui/src/lib/containers/lists/list.component';
@@ -32,7 +31,6 @@ describe('FormsComponent', () => {
         AppRoutingModule
       ],
       declarations: [
-        MatIcon,
         KeyValueUnitListComponent,
         TableComponent,
         FormComponent,
