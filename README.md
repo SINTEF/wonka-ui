@@ -1,4 +1,4 @@
- [![npm version](https://badge.fury.io/js/wonka-ui.svg)](https://badge.fury.io/js/wonka-ui)
+[![npm version](https://badge.fury.io/js/wonka-ui.svg)](https://badge.fury.io/js/wonka-ui)
 
 # Angular wonka-ui - UI component library using Bulma CSS framework styles
 wonka-ui is a front-end/user interface framework written in Angular and Typescript, aimed towards making front-end components and code re-usable within SINTEF Connect.
@@ -62,7 +62,7 @@ const lineChartDataSets = [{
 }, {
   data: [150, 140, 130, 120, 110, 100, 90],
   label: 'Series F', lineTension: 0
-}] as ChartDataSets[];
+}];
 
 const lineChartLabels =
   ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
@@ -217,7 +217,7 @@ form = {
           label: 'Button 3'
         }
       ] as FormButton[],
-      fields: [
+            fields: [
         {
           label: 'Main category',
           name: 'categoryAddNew',
@@ -242,6 +242,15 @@ form = {
           type: 'string',
           wide: true,
           info: 'Required field, text, wide, no restrictions'
+        }, {
+          label: 'Amount',
+          name: 'amountSelectUnits',
+          required: true,
+          type: 'select',
+          options: ['400', '600', '800'],
+          wide: true,
+          info: 'Selectable units',
+          units: ['Kilograms', 'Meters']
         }, {
           label: 'Depth',
           description: 'This is the description of the field.',
@@ -305,6 +314,13 @@ form = {
           name: 'noInfo',
           wide: false,
           type: 'string',
+        }, {
+          label: 'Direction',
+          name: 'direction',
+          required: true,
+          type: 'radio',
+          options: ['North', 'South', 'East', 'West'],
+          info: 'Radio button group'
         }
       ] as FormFieldItem[]
     } as FormItem;

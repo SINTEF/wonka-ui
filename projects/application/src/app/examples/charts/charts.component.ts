@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { LineChartItem, PieChartItem, ScatterChartItem } from '../../../../../wonka-ui/src/lib/charts/chart.component';
-import { ChartDataSets } from '../../../../../wonka-ui/node_modules/@types/chart.js';
 
 @Component({
   selector: 'app-charts',
@@ -49,7 +48,7 @@ export class ChartsComponent implements OnInit {
     }, {
       data: [150, 140, 130, 120, 110, 100, 90],
       label: 'Series F', lineTension: 0
-    }] as ChartDataSets[];
+    }];
 
     const lineChartLabels =
       ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
@@ -73,7 +72,7 @@ export class ChartsComponent implements OnInit {
     }, {
       data: [150, 140, 130, 120, 110, 100, 90],
       label: 'Series F', lineTension: 0
-    }] as ChartDataSets[];
+    }];
 
     const lineChartLabels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
 
