@@ -1,4 +1,4 @@
-[![npm version](https://badge.fury.io/js/wonka-ui.svg)](https://badge.fury.io/js/wonka-ui)
+[![npm version](https://badge.fury.io/js/@sintef/wonka-ui.svg)](https://badge.fury.io/js/@sintef/wonka-ui)
 
 # Angular wonka-ui - UI component library using Bulma CSS framework styles
 wonka-ui is a front-end/user interface framework written in Angular and Typescript, aimed towards making front-end components and code re-usable within SINTEF Connect.
@@ -519,7 +519,7 @@ Library is under active development and may have API breaking changes for subseq
 
 #### NPM
 ```shell
-npm install --save wonka-ui
+npm install --save @sintef/wonka-ui
 ```
 ### Step 2: Import the chosen wonka-ui modules:
 ```js
