@@ -2,7 +2,7 @@
  *  If needed, code from this component can be used. In that case, the component (with all 4 files) must be renamed, and
  *  references in app.module.ts must be updated.
  */
-import { Component, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Action, Card } from '../../../../../wonka-ui/src/lib/card/card';
 
 
@@ -14,7 +14,7 @@ import { Action, Card } from '../../../../../wonka-ui/src/lib/card/card';
   templateUrl: './cards.component.html',
   styleUrls: ['../css/examples.scss']
 })
-export class CardsComponent {
+export class CardsComponent implements OnInit {
   cards: Card<any>[];
   explanation: string;
 

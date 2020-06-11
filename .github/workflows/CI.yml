@@ -24,12 +24,23 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: npm install
+    - name: npm install [wonka-ui]
       run: npm ci
-    - name: npm run build
+    - name: npm run build [wonka-ui]
       run: npm run build
-    - name: Linting
+    - name: Linting [wonka-ui]
       run: npm run lint
-    - name: Run unit tests
+    - name: Run unit tests [wonka-ui]
       run: npm run test -- --browsers=ChromeHeadless --watch=false --codeCoverage
-
+    - name: npm install [demo-app]
+      working-directory: ./project/application
+      run: npm ci
+    - name: npm run build [demo-app]
+      working-directory: ./project/application
+      run: npm run build
+    - name: Linting [demo-app]
+      working-directory: ./project/application
+      run: npm run lint
+    - name: Run unit tests [demo-app]
+      working-directory: ./project/application
+      run: npm run test -- --browsers=ChromeHeadless --watch=false --codeCoverage
