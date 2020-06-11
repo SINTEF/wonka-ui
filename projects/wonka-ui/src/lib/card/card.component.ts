@@ -17,6 +17,4 @@ export class CardComponent {
   toggleDescription() {
     this.isExpanded = !this.isExpanded;
   }
-
-
 }

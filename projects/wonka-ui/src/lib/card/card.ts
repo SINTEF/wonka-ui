@@ -20,5 +20,4 @@ export class Action {
   run(): void {
     this.myMethod();
   }
-
 }
