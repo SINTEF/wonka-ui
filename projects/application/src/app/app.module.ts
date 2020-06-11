@@ -9,6 +9,7 @@ import { ChartsComponent } from './examples/charts/charts.component';
 import { ContainersComponent } from './examples/containers/containers.component';
 import { InfoComponent } from './examples/info/info.component';
 import { FormsComponent } from './examples/forms/forms.component';
+import { CardsComponent } from './examples/cards/cards.component';
 import { ChartsModule } from 'ng2-charts';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavigationBarComponent } from '../../../wonka-ui/src/lib/navigation/navigation-bar/navigation-bar.component';
@@ -18,6 +19,7 @@ import { TableComponent } from '../../../wonka-ui/src/lib/containers/tables/tabl
 import { ListComponent } from '../../../wonka-ui/src/lib/containers/lists/list.component';
 import { KeyValueUnitListComponent } from '../../../wonka-ui/src/lib/containers/key-value-unit-lists/key-value-unit-list.component';
 import { InfoPanelComponent } from '../../../wonka-ui/src/lib/info/info-panel.component';
+import { CardComponent } from '../../../wonka-ui/src/lib/card/card.component';
 import { NavigationComponent } from './examples/navigation/navigation.component';
 import { RouterModule } from '@angular/router';
 
@@ -35,7 +37,9 @@ import { RouterModule } from '@angular/router';
     FormComponent,
     ListComponent,
     KeyValueUnitListComponent,
-    ChartComponent
+    ChartComponent,
+    CardComponent,
+    CardsComponent
   ],
   imports: [
     CommonModule,

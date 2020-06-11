@@ -16,6 +16,8 @@ import { MockComponent } from 'ng-mocks';
 import { ChartComponent } from '../../../../../wonka-ui/src/lib/charts/chart.component';
 import { KeyValueUnitListComponent } from '../../../../../wonka-ui/src/lib/containers/key-value-unit-lists/key-value-unit-list.component';
 import { NavigationComponent } from 'src/app/examples/navigation/navigation.component';
+import { CardsComponent } from '../cards/cards.component';
+import { CardComponent } from '../../../../../wonka-ui/src/lib/card/card.component';
 
 describe('InfoComponent', () => {
   let component: InfoComponent;
@@ -41,6 +43,8 @@ describe('InfoComponent', () => {
         InfoPanelComponent,
         NavigationComponent,
         ChartsComponent,
+        CardComponent,
+        CardsComponent,
         MockComponent(ChartComponent)
       ],
       providers: [],

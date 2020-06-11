@@ -1,0 +1,29 @@
+<div class="card">
+    <div class="card-card-content">
+
+        <div class="card-image-container" *ngIf="card.imageUrl">
+            <div class="card-image" [ngStyle]="{'background-image': 'url('+card.imageUrl+')'}">
+            </div>
+        </div>
+
+        <div class="card-content">
+            <h1 class="heading is-size-4 card-title">{{card.title}}</h1>
+            <div *ngIf="isExpanded; then fullCard else minimalCard"></div>
+
+            <ng-template #fullCard>
+                <p class="is-size-7 card-description" translate [innerHTML]="card.content"></p>
+            </ng-template>
+
+            <ng-template #minimalCard>
+                <p class="is-size-7 card-description">{{card.description}}</p>
+            </ng-template>
+
+            <button class="button is-small is-light" (click)="toggleDescription()">Read
+                {{ isExpanded ? 'less' : 'more' }}</button>
+        </div>
+    </div>
+
+    <footer class="card-footer">
+        <a  *ngFor="let action of card.actions" class="card-footer-item button is-small is-link" (click)="run(action)">{{action.title}}</a>
+    </footer>
+</div>

@@ -5,7 +5,7 @@ import { ChartsComponent } from './examples/charts/charts.component';
 import { ContainersComponent } from './examples/containers/containers.component';
 import { InfoComponent } from './examples/info/info.component';
 import { NavigationComponent } from './examples/navigation/navigation.component';
-
+import { CardsComponent } from './examples/cards/cards.component';
 
 const routes: Routes = [
   {path: '' , component: InfoComponent},
@@ -13,6 +13,7 @@ const routes: Routes = [
   {path: 'forms-example' , component: FormsComponent},
   {path: 'charts-example' , component: ChartsComponent},
   {path: 'containers-example' , component: ContainersComponent},
+  {path: 'cards-example' , component: CardsComponent},
   {path: 'info-example' , component: InfoComponent},
   {path: 'navigation-example' , component: NavigationComponent}
 ];

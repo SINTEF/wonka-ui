@@ -1,0 +1,29 @@
+<style>
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));   
+    gap: 40px;
+}
+</style>
+
+<div id="demo">
+    <div class="row">
+        <div class="columns">
+            <div class="column"></div>
+            <div class="column is-8">
+                <div class="header">Wonka Cards page example</div>
+                <div class="card-container container">
+                    <div *ngFor="let card of cards" id="card-card">
+                      <lib-app-card
+                        [card]="card"></lib-app-card>
+                    </div>
+                </div>
+                <br>
+                <pre>
+                    <code class="code" [innerHtml]="explanation"></code>
+                </pre>
+            </div>
+            <div class="column"></div>
+        </div>
+    </div>
+</div>

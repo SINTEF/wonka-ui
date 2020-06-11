@@ -5,6 +5,7 @@ import { TableComponent } from '../../../../../wonka-ui/src/lib/containers/table
 import { ListComponent } from '../../../../../wonka-ui/src/lib/containers/lists/list.component';
 import { InfoComponent } from '../info/info.component';
 import { FormsComponent } from '../forms/forms.component';
+import { CardsComponent } from '../cards/cards.component';
 import { ChartsComponent } from '../charts/charts.component';
 import { ChartsModule } from 'ng2-charts';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -16,6 +17,7 @@ import { MockComponent } from 'ng-mocks';
 import { ChartComponent } from '../../../../../wonka-ui/src/lib/charts/chart.component';
 import { KeyValueUnitListComponent } from '../../../../../wonka-ui/src/lib/containers/key-value-unit-lists/key-value-unit-list.component';
 import { NavigationComponent } from 'src/app/examples/navigation/navigation.component';
+import { CardComponent } from '../../../../../wonka-ui/src/lib/card/card.component';
 
 describe('ContainersComponent', () => {
   let component: ContainersComponent;
@@ -41,6 +43,8 @@ describe('ContainersComponent', () => {
         ChartsComponent,
         InfoPanelComponent,
         NavigationComponent,
+        CardComponent,
+        CardsComponent,
         MockComponent(ChartComponent)
       ],
       providers: [],
