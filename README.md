@@ -24,7 +24,8 @@ Table of contents
 * [Key-value-unit list](#key-value-unit-list)
 * [List](#list)
 * [Navigation bar](#navigation-bar)
-* [Table](#table) 
+* [Table](#table)
+* [Cards](#cards)
 * [Getting started](#getting-started)
 * [Demo application](#demo-application)
 * [License](#license)
@@ -451,6 +452,7 @@ menu: [
   {name: 'Forms', path: '/forms-example'},
   {name: 'Charts', path: '/charts-example'},
   {name: 'Containers', path: '/containers-example'},
+  {name: 'Cards', path: '/cards-example'},
   {name: 'Navigation', path: '/navigation-example'},
   {name: 'Settings', path: '/settings'}] as MenuElement[];
 
@@ -508,6 +510,59 @@ this.tableItem = {
 
 showRow(event: string[]) {
   alert('Row clicked: ' + JSON.stringify(event, null, 2));
+}
+```
+
+## Cards
+#### Cards with title, image, description and actions
+![Table screenshot](screenshots/sc_cards.png "Table screenshot")
+Include component in html template:  
+```shell
+  <div *ngFor="let card of cards" id="card-card">
+    <lib-app-card
+      [card]="card">
+    </lib-app-card>
+  </div>
+```
+Define card items in ts file:  
+```shell
+this.cards =  [ {
+  input: 'Input for card 1',
+  imageUrl: '/assets/img/wonka-2.png',
+  title: 'Title card 1',
+  description: 'A short description.',
+  content: 'A more detailed description.',
+  actions: [this.createWebAppAction('Web Page for card 1'), this.createAPIAction('API URL')]
+},
+{
+  input: 'Input for card 2',
+  imageUrl: '/assets/img/wonka-2.png',
+  title: 'Title card 2',
+  description: 'A short description.',
+  content: 'A more detailed description.',
+  actions: [this.createWebAppAction('Web Page for card 2'), this.createAPIAction('API URL')]
+},
+{
+  input: 'Input for card 3',
+  imageUrl: '/assets/img/wonka-2.png',
+  title: 'Title card 3',
+  description: 'A short description.',
+  content: 'A more detailed description.',
+  actions: [this.createWebAppAction('Web Page for card 3'), this.createAPIAction('API URL')]
+}] as Card<any>[];
+```
+Define action functions:
+```shell
+private createWebAppAction(url): Action {
+  return new Action('Web application', () => {
+    alert('Redirect to a web page.');
+  });
+}
+
+private createAPIAction(product: any): Action {
+  return new Action('API', () => {
+    alert('Redirect to the API specifications.');
+  });
 }
 ```
 
