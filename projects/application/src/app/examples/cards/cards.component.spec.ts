@@ -1,8 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FormsComponent } from './forms.component';
+import { Card } from '../../../../../wonka-ui/src/lib/card/card';
+import { CardsComponent } from './cards.component';
+import { FormsComponent } from '../forms/forms.component';
 import { InfoComponent } from '../info/info.component';
-import { CardsComponent } from '../cards/cards.component';
 import { ContainersComponent } from '../containers/containers.component';
 import { ChartsComponent } from '../charts/charts.component';
 import { InfoPanelComponent } from '../../../../../wonka-ui/src/lib/info/info-panel.component';
@@ -19,9 +20,12 @@ import { KeyValueUnitListComponent } from '../../../../../wonka-ui/src/lib/conta
 import { NavigationComponent } from '../navigation/navigation.component';
 import { CardComponent } from '../../../../../wonka-ui/src/lib/card/card.component';
 
-describe('FormsComponent', () => {
-  let component: FormsComponent;
-  let fixture: ComponentFixture<FormsComponent>;
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+
+describe('CardsComponent', () => {
+
+  let component: CardsComponent;
+  let fixture: ComponentFixture<CardsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -40,25 +44,44 @@ describe('FormsComponent', () => {
         InfoComponent,
         ContainersComponent,
         FormsComponent,
-        ChartsComponent,
         InfoPanelComponent,
         NavigationComponent,
+        ChartsComponent,
         CardComponent,
         CardsComponent,
-        MockComponent(ChartComponent)
-      ],
-      providers: [],
+        MockComponent(ChartComponent)],
+      schemas: [
+        CUSTOM_ELEMENTS_SCHEMA
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FormsComponent);
+    fixture = TestBed.createComponent(CardsComponent);
     component = fixture.componentInstance;
+    const c1: Card<any> = {
+      title: 'My card',
+      description: 'Short description',
+      content: '<p>The description</p>',
+    };
+    component.cards = [c1];
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+
+  it('should provide a div for each card', () => {
+    const rowHtmlElements: HTMLElement = fixture.nativeElement.querySelector('div');
+
+    expect(rowHtmlElements).toBeDefined();
+
+    const children = rowHtmlElements.children;
+    expect(children.length).toBe(1);
+
+    expect(children[0].getAttribute('id')).toBe('card-card');
   });
 });

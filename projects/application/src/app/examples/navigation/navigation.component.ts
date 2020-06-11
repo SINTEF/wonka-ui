@@ -42,6 +42,7 @@ export class NavigationComponent implements OnInit {
       {name: 'Forms', path: '/forms-example'},
       {name: 'Charts', path: '/charts-example'},
       {name: 'Containers', path: '/containers-example'},
+      {name: 'Cards', path: '/cards-example'},
       {name: 'Navigation', path: '/navigation-example'},
       {name: 'Settings', path: '/settings'}] as MenuElement[];
 
