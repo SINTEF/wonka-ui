@@ -19,6 +19,7 @@ import { ChartComponent } from '../../../../../wonka-ui/src/lib/charts/chart.com
 import { KeyValueUnitListComponent } from '../../../../../wonka-ui/src/lib/containers/key-value-unit-lists/key-value-unit-list.component';
 import { NavigationComponent } from '../navigation/navigation.component';
 import { CardComponent } from '../../../../../wonka-ui/src/lib/card/card.component';
+import { By } from '@angular/platform-browser';
 
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
@@ -73,15 +74,15 @@ describe('CardsComponent', () => {
     expect(component).toBeTruthy();
   });
 
-
   it('should provide a div for each card', () => {
-    const rowHtmlElements: HTMLElement = fixture.nativeElement.querySelector('div');
+    const cardContainer = fixture.debugElement.query(By.css('.card-container')).nativeElement;
+    expect(cardContainer).toBeDefined();
 
-    expect(rowHtmlElements).toBeDefined();
-
-    const children = rowHtmlElements.children;
-    expect(children.length).toBe(1);
+    const children = cardContainer.children;
+    expect(children.length).toBe(3); // 3 cards in the example
 
     expect(children[0].getAttribute('id')).toBe('card-card');
+    expect(children[1].getAttribute('id')).toBe('card-card');
+    expect(children[2].getAttribute('id')).toBe('card-card');
   });
 });
