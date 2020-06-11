@@ -553,13 +553,13 @@ this.cards =  [ {
 ```
 Define action functions:
 ```shell
-private createWebAppAction(url): Action {
+private createWebAppAction(WebPageURL): Action {
   return new Action('Web application', () => {
     alert('Redirect to a web page.');
   });
 }
 
-private createAPIAction(product: any): Action {
+private createAPIAction(APIURL): Action {
   return new Action('API', () => {
     alert('Redirect to the API specifications.');
   });
