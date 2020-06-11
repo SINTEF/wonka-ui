@@ -59,13 +59,13 @@ export class CardsComponent {
     }] as Card<any>[];
 
     <i><b>Define action functions:</b></i>
-    private createWebAppAction(webPageURL): Action {
+    private createWebAppAction(webPageURL: string): Action {
       return new Action('Web application', () => {
         alert('Redirect to a web page.');
       });
     }
 
-    private createAPIAction(APIURL): Action {
+    private createAPIAction(APIURL: string): Action {
       return new Action('API', () => {
         alert('Redirect to the API specifications.');
       });
@@ -98,13 +98,13 @@ export class CardsComponent {
   }] as Card<any>[];
   }
 
-  private createWebAppAction(webPageURL): Action {
+  private createWebAppAction(webPageURL: string): Action {
     return new Action('Web application', () => {
       alert('Redirect to a web page.');
     });
   }
 
-  private createAPIAction(APIURL): Action {
+  private createAPIAction(APIURL: string): Action {
     return new Action('API', () => {
       alert('Redirect to the API specifications.');
     });
