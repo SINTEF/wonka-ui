@@ -1,6 +1,6 @@
 {
-  "name": "wonka-ui",
-  "version": "1.0.1",
+  "name": "@sintef/wonka-ui",
+  "version": "1.1.0",
   "license": "CC-BY-4.0",
   "repository": {
     "type": "git",
