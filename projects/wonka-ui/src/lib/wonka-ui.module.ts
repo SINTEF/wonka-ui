@@ -6,6 +6,7 @@ import { TableModule } from './containers/tables/table.module';
 import { FormModule } from './forms/form.module';
 import { KeyValueUnitListModule } from './containers/key-value-unit-lists/key-value-unit-list.module';
 import { NavigationBarModule } from './navigation/navigation-bar/navigation-bar.module';
+import { CardModule } from './card/card.module';
 
 @NgModule({
   declarations: [],
@@ -14,6 +15,7 @@ import { NavigationBarModule } from './navigation/navigation-bar/navigation-bar.
   exports: [
     NavigationBarModule,
     ChartModule,
+    CardModule,
     ListModule,
     InfoPanelModule,
     TableModule,

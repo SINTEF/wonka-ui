@@ -29,6 +29,7 @@ Table of contents
 * [Getting started](#getting-started)
 * [Demo application](#demo-application)
 * [License](#license)
+* [Local consumption in other projects](#local-development)
   
 ## Chart
 #### Line chart
@@ -616,3 +617,22 @@ License][cc-by].
 [cc-by-image]: https://i.creativecommons.org/l/by/4.0/88x31.png
 [cc-by-shield]: https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg
 =======
+
+## Local development
+Two steps are required to consume a local version of the library in another project during development.
+
+### Modify angular.json in dependent project
+Set the `preserveSymlinks` option to `true` (under the `architect > build > options` section) in the `angular.json` configuration file of the dependent project. It is set to false by default, making the dependent project's root module unable to import Wonka-UI's modules at runtime. 
+
+### Setup a symlink
+Build the library locally with
+```shell
+npm run build
+```
+
+Then, with a shell in the other project's root directory, install it there with
+```shell
+npm install <PATH_TO_LOCAL_CLONE>/dist/wonka-ui
+```
+
+This will setup a symlink from the `@sintef/wonka-ui` directory in the dependent project's `node_modules` into the locally built library, so that all built library changes are reflected in the dependent project.
