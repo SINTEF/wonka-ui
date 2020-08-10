@@ -10,7 +10,5 @@ export { CardModule } from './lib/card/card.module';
 export { FormModule } from './lib/forms/form.module';
 export { InfoPanelModule } from './lib/info/info-panel.module';
 export { NavigationBarModule } from './lib/navigation/navigation-bar/navigation-bar.module';
-// export * from './lib/wonka-ui.module';
-// export * from './lib/wonka-ui.service';
 export * from './lib/card/card';
 export * from './lib/forms/form';
