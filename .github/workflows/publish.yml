@@ -22,7 +22,7 @@ jobs:
       - run: npm run build
       - name: Copy README
         run: cp README.md ./dist/wonka-ui/
-      - run: npm publish --access public --tag beta
+      - run: npm publish --access public
         working-directory: dist/wonka-ui
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
