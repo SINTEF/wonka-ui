@@ -1,19 +1,19 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
-import { NavigationBarComponent } from '../../../wonka-ui/src/lib/navigation/navigation-bar/navigation-bar.component';
+import { NavigationBarModule } from '@sintef/wonka-ui';
 import { FormsModule } from '@angular/forms';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
+        NavigationBarModule,
         RouterTestingModule,
         FormsModule
       ],
       declarations: [
         AppComponent,
-        NavigationBarComponent
         ],
       providers: [],
     }).compileComponents();
