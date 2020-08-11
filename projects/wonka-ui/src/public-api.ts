@@ -12,3 +12,10 @@ export { InfoPanelModule } from './lib/info/info-panel.module';
 export { NavigationBarModule } from './lib/navigation/navigation-bar/navigation-bar.module';
 export * from './lib/card/card';
 export * from './lib/forms/form';
+export {
+    LineChartData,
+    LineChartItem,
+    PieChartItem,
+    PointItem,
+    ScatterChartItem
+} from './lib/charts/chart';
