@@ -1,26 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import {
-  Card,
-  InfoPanelModule,
-  TableModule,
-  FormModule,
-  ListModule,
-  ChartModule,
-  KeyValueUnitListModule,
-} from '@sintef/wonka-ui';
+import { Card, CardModule } from '@sintef/wonka-ui';
 import { CardsComponent } from './cards.component';
-import { FormsComponent } from '../forms/forms.component';
-import { InfoComponent } from '../info/info.component';
-import { ContainersComponent } from '../containers/containers.component';
-import { ChartsComponent } from '../charts/charts.component';
-import { ChartsModule } from 'ng2-charts';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterTestingModule } from '@angular/router/testing';
-import { AppRoutingModule } from 'src/app/app-routing.module';
-import { NavigationComponent } from '../navigation/navigation.component';
 import { By } from '@angular/platform-browser';
-
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('CardsComponent', () => {
 
@@ -30,28 +11,10 @@ describe('CardsComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        ChartModule,
-        KeyValueUnitListModule,
-        ChartsModule,
-        FormsModule,
-        InfoPanelModule,
-        TableModule,
-        FormModule,
-        ListModule,
-        ReactiveFormsModule,
-        RouterTestingModule,
-        AppRoutingModule
+        CardModule
       ],
       declarations: [
-        InfoComponent,
-        ContainersComponent,
-        FormsComponent,
-        NavigationComponent,
-        ChartsComponent,
-        CardsComponent],
-      schemas: [
-        CUSTOM_ELEMENTS_SCHEMA
-      ]
+        CardsComponent]
     })
       .compileComponents();
   }));
