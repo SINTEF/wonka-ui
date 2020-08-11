@@ -1,17 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-
-
-export interface TableColumnItem {
-  columnName: string;
-  width?: number;
-}
-
-export interface TableItem {
-  id: string;
-  tableHeader: string;
-  cols: TableColumnItem[];
-  data: string[][];
-}
+import { TableItem } from './table';
 
 @Component({
   selector: 'lib-table',

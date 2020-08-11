@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Output } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { MenuElement, User } from '../../../wonka-ui/src/lib/navigation/navigation-bar/navigation-bar.component';
+import { MenuElement, User } from '@sintef/wonka-ui';
 
 @Component({
   selector: 'app-root',

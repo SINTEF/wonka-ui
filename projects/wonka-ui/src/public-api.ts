@@ -13,6 +13,9 @@ export { NavigationBarModule } from './lib/navigation/navigation-bar/navigation-
 export * from './lib/card/card';
 export * from './lib/forms/form';
 export * from './lib/containers/key-value-unit-lists/key-value-unit-list';
+export * from './lib/containers/lists/list';
+export * from './lib/containers/tables/table';
+export * from './lib/navigation/navigation-bar/navigation-bar';
 export {
     LineChartData,
     LineChartItem,

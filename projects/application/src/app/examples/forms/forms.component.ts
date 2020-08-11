@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { FormFieldItem, FormItem, FormButton } from '../../../../../wonka-ui/src/lib/forms/form';
+import { FormFieldItem, FormItem, FormButton } from '@sintef/wonka-ui';
 
 @Component({
   selector: 'app-forms',
