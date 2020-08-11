@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { TableItem, TableColumnItem } from '../../../../../wonka-ui/src/lib/containers/tables/table.component';
-import { ListItem } from '../../../../../wonka-ui/src/lib/containers/lists/list.component';
-import { KeyValueUnitListItem } from '../../../../../wonka-ui/src/lib/containers/key-value-unit-lists/key-value-unit-list.component';
+import {
+  KeyValueUnitListItem,
+  TableItem,
+  TableColumnItem,
+  ListItem
+} from '@sintef/wonka-ui';
 
 @Component({
   selector: 'app-containers',
@@ -23,7 +26,7 @@ export class ContainersComponent implements OnInit {
 
   subscription: Subscription = new Subscription();
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit() {
 
@@ -147,7 +150,8 @@ export class ContainersComponent implements OnInit {
           value: '45',
           unit: 'seconds'
         }
-      ]} as KeyValueUnitListItem;
+      ]
+    } as KeyValueUnitListItem;
 
     this.explanation3 = `
     <b>Component for showing key-value-unit items in a simple list.</b>

@@ -1,12 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-
-export class ListItem {
-  id: string;
-  name: string;
-  path: string;
-  description: string;
-  header: string;
-}
+import { ListItem } from './list';
 
 @Component({
   selector: 'lib-list',

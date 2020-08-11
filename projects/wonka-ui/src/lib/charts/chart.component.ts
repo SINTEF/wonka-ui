@@ -1,30 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ChartType, ChartOptions, ChartDataSets } from 'chart.js';
 import { Label, Color } from 'ng2-charts';
-
-export interface PointItem {
-  x: number;
-  y: number;
-}
-
-export interface LineChartItem {
-  chartDataSets: ChartDataSets[];
-  chartLabels: string[];
-}
-
-export interface LineChartData {
-  data: number[];
-  label: string;
-  lineTension: number;
-}
-export interface PieChartItem {
-  chartData: number[];
-  chartLabels: string[];
-}
-
-export interface ScatterChartItem {
-  chartData: ChartDataSets[];
-}
+import { LineChartItem, PieChartItem, ScatterChartItem } from './chart';
 
 /**
  * Provides a chart

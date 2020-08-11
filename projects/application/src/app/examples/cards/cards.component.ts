@@ -3,7 +3,7 @@
  *  references in app.module.ts must be updated.
  */
 import { Component, OnInit } from '@angular/core';
-import { Action, Card } from '../../../../../wonka-ui/src/lib/card/card';
+import { Action, Card } from '@sintef/wonka-ui';
 
 
 /** Component for calling an API endpoint to get a list of cards and showing it in a table.

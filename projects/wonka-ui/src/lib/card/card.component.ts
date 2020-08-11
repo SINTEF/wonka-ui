@@ -1,7 +1,9 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Card, Action } from './card';
+
+
 @Component({
-  selector: 'lib-app-card',
+  selector: 'lib-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss']
 })

@@ -1,7 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { KeyValueUnitListComponent, KeyValueUnitListItem } from './key-value-unit-list.component';
+import { KeyValueUnitListComponent } from './key-value-unit-list.component';
 import { By } from '@angular/platform-browser';
+import { KeyValueUnitListItem } from './key-value-unit-list';
 
 describe('KeyValueUnitListComponent', () => {
   let component: KeyValueUnitListComponent;

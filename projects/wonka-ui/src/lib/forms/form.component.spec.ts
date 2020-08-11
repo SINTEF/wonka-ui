@@ -1,7 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { FormComponent, FormFieldItem, FormItem, FormButton } from './form.component';
+import { FormComponent } from './form.component';
 import { By } from '@angular/platform-browser';
+import { FormButton, FormFieldItem, FormItem } from './form';
 
 describe('FormComponent', () => {
   let component: FormComponent;
