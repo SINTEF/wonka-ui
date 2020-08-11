@@ -1,13 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-
-export interface KeyValueUnitListItem {
-  name: string;
-  items: Array<{
-    key: string;
-    value: string;
-    unit: string;
-  }>;
-}
+import { KeyValueUnitListItem } from './key-value-unit-list';
 
 @Component({
   selector: 'lib-key-value-unit-list',
