@@ -37,7 +37,6 @@
     "rxjs": "^6.5.3",
     "rxjs-compat": "^6.5.3",
     "tslib": "^1.10.0",
-    "wonka-ui": "file:../../dist/wonka-ui",
     "zone.js": "~0.9.1"
   },
   "devDependencies": {

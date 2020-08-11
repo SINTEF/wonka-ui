@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LineChartItem, PieChartItem, ScatterChartItem } from '../../../../../wonka-ui/src/lib/charts/chart.component';
+import { LineChartItem, PieChartItem, ScatterChartItem } from '@sintef/wonka-ui';
 
 @Component({
   selector: 'app-charts',
