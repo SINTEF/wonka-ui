@@ -1,6 +1,6 @@
 {
   "name": "wonka-application",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "scripts": {
     "ng": "ng",
     "config": "ts-node set-env.ts",
@@ -32,7 +32,7 @@
     "dotenv": "^8.2.0",
     "jquery": "^3.4.1",
     "ng-mocks": "^8.1.0",
-    "ng2-charts": "^2.3.0",
+    "ng2-charts": "2.3.3",
     "ngx-bootstrap": "^5.1.2",
     "rxjs": "^6.5.3",
     "rxjs-compat": "^6.5.3",
